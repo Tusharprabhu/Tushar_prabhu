@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./component/navbar.jsx";
 import Hero from "./component/hero.jsx";
 import About from "./component/About.jsx";
+import Technologies from "./component/technologies.jsx";
 export default function App() {
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
@@ -11,6 +12,7 @@ export default function App() {
           <Navbar />
           <Hero />
           <About />
+          <Technologies />
         </div>
       </div>
     </div>
