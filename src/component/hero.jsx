@@ -5,8 +5,8 @@ import profilePic from "../assets/kevinRushProfile.png";
 const Hero = () => {
   return (
     <div className="h-screen border-b border-neutral-900 pb-4">
-      <div className="flex flex-wrap h-full center">
-        <div className="w-full lg:w-1/2 h-full">
+      <div className="flex flex-wrap lg:h-full ">
+        <div className="w-full lg:w-1/2 lg:h-full">
           <div
             className=" flex flex-col items-center 
           lg:items-start h-1/2 justify-center"
@@ -29,9 +29,9 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 lg:p-8">
-          <div className="flex justify-center pt-16">
-            <img src={profilePic} alt="Kevin Rush" />
+        <div className=" lg:w-1/2 lg:p-8">
+          <div className="flex justify-center">
+            <img src={profilePic} alt="Tushar Prabhu" />
           </div>
         </div>
       </div>
