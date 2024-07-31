@@ -9,7 +9,7 @@ const container = (delay, x) => ({
   visible: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.5, delay: delay },
+    transition: { duration: 0.7, delay: delay },
   },
 });
 const Hero = () => {
@@ -22,11 +22,12 @@ const Hero = () => {
           lg:items-start h-1/2 justify-center"
           >
             <motion.h1
+              visible={{ opacity: 1, x: 100 }}
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 1.1 }}
               drag={true}
               dragConstraints={{ left: -80, right:200, top: -100, bottom: 3900 }}
-              variants={container(0.4, a)}
+              variants={container(0.3, a)}
               initial="hidden"
               animate="visible"
               
@@ -36,7 +37,7 @@ const Hero = () => {
               Tushar<br></br>Prabhu
             </motion.h1>
             <motion.div
-              variants={container(0.4, a)}
+              variants={container(1.5, a)}
               initial="hidden"
               animate="visible"
             >
@@ -54,7 +55,7 @@ const Hero = () => {
         <div className=" lg:w-1/2 lg:p-8">
           <div className="flex justify-center">
             <motion.img
-              variants={container(0.6, c)}
+              variants={container(1.5, c)}
               initial="hidden"
               animate="visible"
               src={profilePic}
