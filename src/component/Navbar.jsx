@@ -6,17 +6,17 @@ import { FaFacebook } from "react-icons/fa";
 
 const navbar = () => {
   return (
-    <nav className="py-7 px-5 flex item-center justify-between ">
+    <nav className="py-7 lg:px-5 flex item-center justify-between ">
       <div className="flex flex-shrink-0 items-center">
-        <a href="/" className="text-white font-bold text-2xl">
+        <a href="#" className="text-white font-bold text-2xl ">
           Tushar
         </a>
       </div>
       <div className="m-0 flex items-center justify-center gap-4 text-2xl">
-        <FaFacebook className="text-white" />
-        <FaInstagram className="text-white" />
-        <FaLinkedin className="text-white" />
-        <FaGithub className="text-white" />
+       <FaFacebook href="#" className="text-white hover:text-blue-600" />
+        <FaInstagram href="#"className="text-white hover:text-pink-600" />
+        <FaLinkedin href="#" className="text-white hover:text-blue-300" />
+        <FaGithub href="#" className="text-white hover:text-slate-400" />
       </div>
     </nav>
   );

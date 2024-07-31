@@ -1,7 +1,18 @@
 import React from "react";
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/kevinRushProfile.png";
-
+import { motion } from "framer-motion"
+const a=-100;
+const b=0;  
+const c=100;
+const container =(delay,x) => ({
+hidden:{x: x, opacity: 0},
+visible:{
+  x:0,
+  opacity:1,
+  transition:{duration:0.5,delay:delay}
+},
+});
 const Hero = () => {
   return (
     <div className="border-b border-neutral-900 pb-4">
@@ -11,12 +22,13 @@ const Hero = () => {
             className=" flex flex-col items-center 
           lg:items-start h-1/2 justify-center"
           >
-            <h1
+            <motion.h1 variants={container(0.2,-100)} initial="hidden" animate="visible"
               className="pt-64 pb-16 lg:py-24 text-6xl font-thin tracking-tight 
             lg:text-8xl"
             >
               Tushar<br></br>Prabhu
-            </h1>
+            </motion.h1>
+            <motion.div variants={container(0.4,-100)} initial="hidden" animate="visible">
             <span
               className="bg-gradient-to-r from-pink-300 
             via-slate-500  to-purple-500 bg-clip-text text-3xl 
@@ -27,11 +39,12 @@ const Hero = () => {
             <p>{HERO_CONTENT}
 
             </p>
+            </motion.div>
           </div>
         </div>
         <div className=" lg:w-1/2 lg:p-8">
           <div className="flex justify-center">
-            <img src={profilePic} alt="Tushar Prabhu" />
+            <motion.img variants={container(0.6,100)} initial="hidden" animate="visible" src={profilePic} alt="Tushar Prabhu" />
           </div>
         </div>
       </div>
