@@ -3,7 +3,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-
 const navbar = () => {
   return (
     <nav className="py-7 lg:px-5 flex item-center justify-between ">
