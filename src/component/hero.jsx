@@ -12,15 +12,15 @@ const Hero = () => {
           lg:items-start h-1/2 justify-center"
           >
             <h1
-              className="pt-64 text-6xl font-thin tracking-tight 
-            lg:pb-16 lg:text-8xl"
+              className="pt-64 pb-16 lg:py-24 text-6xl font-thin tracking-tight 
+            lg:text-8xl"
             >
               Tushar<br></br>Prabhu
             </h1>
             <span
               className="bg-gradient-to-r from-pink-300 
             via-slate-500  to-purple-500 bg-clip-text text-3xl 
-            tracking-tight text-transparent font-light"
+            tracking-tight text-transparent font-light "
             >
               Electronics and Communication Engineer
             </span>
