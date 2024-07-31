@@ -4,7 +4,7 @@ import profilePic from "../assets/kevinRushProfile.png";
 
 const Hero = () => {
   return (
-    <div className="h-screen border-b border-neutral-900 pb-4">
+    <div className="border-b border-neutral-900 pb-4">
       <div className="flex flex-wrap lg:h-full ">
         <div className="w-full lg:w-1/2 lg:h-full">
           <div
