@@ -2,6 +2,7 @@ import React from "react";
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/Tushar.png";
 import { motion } from "framer-motion";
+import brush from "../assets/brush.jpg";
 const a = -100;
 const c = 100;
 const container = (delay, x) => ({
@@ -26,11 +27,15 @@ const Hero = () => {
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 1.1 }}
               drag={true}
-              dragConstraints={{ left: -80, right:200, top: -100, bottom: 3900 }}
+              dragConstraints={{
+                left: -80,
+                right: 200,
+                top: -100,
+                bottom: 3900,
+              }}
               variants={container(0.3, a)}
               initial="hidden"
               animate="visible"
-              
               className="pt-64 pb-16 lg:py-24 text-6xl font-thin tracking-tight 
             lg:text-8xl"
             >
@@ -59,7 +64,10 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               src={profilePic}
-              alt="Tushar Prabhu" className="rounded-2xl brightness-50 grayscale" 
+              alt="Tushar Prabhu"
+              className="rounded-2xl brightness-50 grayscale "
+              style={""}
+
             />
           </div>
         </div>
