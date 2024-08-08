@@ -15,7 +15,7 @@ const container = (delay, x) => ({
 });
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4 mt-13">
+    <div className="border-b border-neutral-900 pb-4 mt-13 mb-32   ">
       <div className="flex flex-wrap lg:h-full ">
         <div className="w-full lg:w-1/2 lg:h-full">
           <div
@@ -36,7 +36,7 @@ const Hero = () => {
               variants={container(0.3, a)}
               initial="hidden"
               animate="visible"
-              className="pt-64 pb-16 lg:py-24 text-6xl font-thin tracking-tight 
+              className="pt-64 pb-16 lg:py-24 text-6xl  font-thin tracking-tight 
             lg:text-8xl"
             >
               Tushar<br></br>Prabhu
@@ -65,9 +65,7 @@ const Hero = () => {
               animate="visible"
               src={profilePic}
               alt="Tushar Prabhu"
-              className="rounded-2xl brightness-50 grayscale "
-              style={""}
-
+              className="rounded-2xl brightness-50 grayscale"
             />
           </div>
         </div>
