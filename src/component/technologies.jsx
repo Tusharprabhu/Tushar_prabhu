@@ -5,11 +5,10 @@ import {
   BiLogoPostgresql,
   BiLogoPython,
 } from "react-icons/bi";
-import { DiRedis } from "react-icons/di";
-import { FaNode, FaNodeJs } from "react-icons/fa";
+import { FaNodeJs } from "react-icons/fa";
 import { RiReactjsFill } from "react-icons/ri";
 import { SiMongodb } from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
+
 import { motion } from "framer-motion";
 const iconVariants = (duration) => ({
   initial: { y: -10 },
