@@ -3,13 +3,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import Navtitle from "../assets/navtitle.png";
 const navbar = () => {
   return (
     <nav className="py-7 lg:px-5 flex item-center justify-between ">
       <div className="flex flex-shrink-0 items-center">
-        <a href="#" className="text-white font-bold text-2xl ">
-          Tushar
-        </a>
+<img src={Navtitle} className="h-12 mt-1.5" alt="title" />
       </div>
       <div className="m-0 flex items-center justify-center gap-4 text-2xl">
       <a href="https://www.facebook.com/tushar.prabhu.359" className="text-white hover:text-blue-600">
