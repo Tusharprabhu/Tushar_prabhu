@@ -14,7 +14,7 @@ const navbar = () => {
         <a href="https://www.facebook.com/tushar.prabhu.359" className="text-white hover:text-blue-600">
           <FaFacebook />
         </a>
-        <a href="https://www.instagram.com/tushar_prabhuu/" className="text-white hover:text-pink-600">
+        <a href="https://www.instagram.com/tushar2.0/" className="text-white hover:text-pink-600">
           <FaInstagram />
         </a>
         <a href="https://www.linkedin.com/in/tushar-prabhuu/" className="text-white hover:text-blue-300">
