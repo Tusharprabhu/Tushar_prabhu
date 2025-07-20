@@ -9,7 +9,7 @@ const Contact = () => {
       transition={{ duration: 0.5 }}
       className="border-b border-neutral-900 pb-4"
     >
-      <h1 className="mt-10 text-center text-4xl">Contact me</h1>
+      <h1 className="mt-10 text-center text-4xl font-section-header">Contact me</h1>
       <section class="bg-inherrit ">
         <div class="container px-6 py-12 mx-auto">
           <div class="text-center">

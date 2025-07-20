@@ -6,24 +6,23 @@ import { FaFacebook } from "react-icons/fa";
 import Navtitle from "../assets/navtitle.png";
 const navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md py-7 lg:px-5 flex item-center justify-between border-b border-neutral-800/30">
+    <nav className="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md pt-7 pb-4 lg:px-5 flex item-center justify-between border-b border-neutral-800/30">
       <div className="flex flex-shrink-0 items-center">
-<img src={Navtitle} className="h-12 mt-1.5" alt="title" />
+        <img src={Navtitle} className="h-12 mt-1.5" alt="title" />
       </div>
       <div className="m-0 flex items-center justify-center gap-4 text-2xl">
-      <a href="https://www.facebook.com/tushar.prabhu.359" className="text-white hover:text-blue-600">
-  <FaFacebook />
-</a>
-<a href="https://www.instagram.com/tushar_prabhuu/" className="text-white hover:text-pink-600">
-  <FaInstagram />
-</a>
-<a href="https://www.linkedin.com/in/tushar-prabhuu/" className="text-white hover:text-blue-300">
-  <FaLinkedin />
-</a>
-<a href="https://github.com/Tusharprabhu" className="text-white hover:text-slate-400">
-  <FaGithub />
-</a>
-
+        <a href="https://www.facebook.com/tushar.prabhu.359" className="text-white hover:text-blue-600">
+          <FaFacebook />
+        </a>
+        <a href="https://www.instagram.com/tushar_prabhuu/" className="text-white hover:text-pink-600">
+          <FaInstagram />
+        </a>
+        <a href="https://www.linkedin.com/in/tushar-prabhuu/" className="text-white hover:text-blue-300">
+          <FaLinkedin />
+        </a>
+        <a href="https://github.com/Tusharprabhu" className="text-white hover:text-slate-400">
+          <FaGithub />
+        </a>
       </div>
     </nav>
   );
