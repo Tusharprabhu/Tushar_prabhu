@@ -6,7 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 import Navtitle from "../assets/navtitle.png";
 const navbar = () => {
   return (
-    <nav className="py-7 lg:px-5 flex item-center justify-between ">
+    <nav className="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md py-7 lg:px-5 flex item-center justify-between border-b border-neutral-800/30">
       <div className="flex flex-shrink-0 items-center">
 <img src={Navtitle} className="h-12 mt-1.5" alt="title" />
       </div>

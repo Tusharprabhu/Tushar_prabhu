@@ -15,59 +15,33 @@ const container = (delay, x) => ({
 });
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-32 mt-13 ">
-      <div className="flex flex-wrap lg:h-full ">
-        <div className="w-full lg:w-1/2 lg:h-full">
-          <div
-            className=" flex flex-col items-center 
-          lg:items-start h-1/2 justify-center"
+    <div className="relative min-h-screen flex items-center justify-center border-b border-neutral-900">
+      {/* Background Image */}
+      <div className="absolute inset-0 flex items-center justify-center z-0 transition-opacity duration-700 opacity-40">
+        <img
+          src={profilePic}
+          alt="Tushar Prabhu"
+          className="w-auto h-[80vh] max-w-none object-cover rounded-2xl brightness-30 grayscale"
+          style={{ transform: "translateY(-40px)" }}
+        />
+      </div>
+      {/* Text Content */}
+      <div className="relative z-10 text-center">
+        <h1
+          className="text-8xl md:text-9xl lg:text-[12rem] font-bemirs tracking-tight text-white"
+        >
+          TUSHAR PRABHU
+        </h1>
+        <div className="mt-8 transition-opacity duration-700 opacity-100">
+          <span
+            className="text-2xl md:text-3xl
+            tracking-tight text-white font-extralight block mb-6"
           >
-            <motion.h1
-              visible={{ opacity: 1, x: 100 }}
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 1.1 }}
-              drag={true}
-              dragConstraints={{
-                left: -80,
-                right: 200,
-                top: -100,
-                bottom: 3900,
-              }}
-              variants={container(0.3, a)}
-              initial="hidden"
-              animate="visible"
-              className="pt-64 pb-16 lg:py-24 text-6xl  font-thin tracking-tight 
-            lg:text-8xl"
-            >
-              Tushar<br></br>Prabhu
-            </motion.h1>
-            <motion.div
-              variants={container(1.5, a)}
-              initial="hidden"
-              animate="visible"
-            >
-              <span
-                className="bg-gradient-to-r from-pink-300 
-            via-slate-500  to-purple-500 bg-clip-text text-3xl 
-            tracking-tight text-transparent font-light "
-              >
-                Electronics and Communication Engineer
-              </span>
-              <p>{HERO_CONTENT}</p>
-            </motion.div>
-          </div>
-        </div>
-        <div className=" lg:w-1/2 lg:p-8">
-          <div className="flex justify-center">
-            <motion.img
-              variants={container(1.5, c)}
-              initial="hidden"
-              animate="visible"
-              src={profilePic}
-              alt="Tushar Prabhu"
-              className="rounded-2xl brightness-50 grayscale"
-            />
-          </div>
+            Electronics and Communication Engineer
+          </span>
+          <p className="text-neutral-300 max-w-2xl mx-auto px-4 text-lg leading-relaxed">
+            {HERO_CONTENT}
+          </p>
         </div>
       </div>
     </div>
