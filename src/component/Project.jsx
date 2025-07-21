@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Project = () => {
   return (
     <div className="border-b border-neutral-900 pb-4">
-      <h1 className="my-20 text-center text-4xl font-section-header">Projects</h1>
+      <h1 className="my-20 text-center text-4xl font-bemirs">Projects</h1>
       <div>
         {PROJECTS.map((project, index) => (
           <div key={index} className="m-16 flex flex-wrap lg:justify-center">

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/Tushar.png";
 import { gsap } from "gsap";
-import "../index.css"; // Ensure styles are imported
+import "../index.css"; 
 
 const Hero = () => {
   const glitchRef = useRef(null);
@@ -12,7 +12,7 @@ const Hero = () => {
     gsap.set('.glitch', { opacity: 1 });
     
     // Create timeline that runs only once (no repeat)
-    const tl = gsap.timeline({delay:2});
+    const tl = gsap.timeline({delay:1});
 
     tl.to('.glitch', 0.1, { skewX: 70, ease: "power4.inOut" })
       .to('.glitch', 0.04, { skewX: 0, ease: "power4.inOut" })
@@ -44,7 +44,7 @@ const Hero = () => {
         <img
           src={profilePic}
           alt="Tushar Prabhu"
-          className="w-auto h-[70vh] max-w-none object-cover rounded-2xl brightness-30 grayscale mb-40"
+          className="w-auto h-[80vh] max-w-none object-cover rounded-2xl brightness-30 grayscale mb-40"
         />
       </div>
       {/* Text Content */}

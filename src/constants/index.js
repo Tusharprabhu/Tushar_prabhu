@@ -3,74 +3,53 @@ import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 import project4 from "../assets/projects/project-4.jpg";
 
-export const HERO_CONTENT = `I'm an electronics and communication engineering student at PES University, with a major in ECE and a minor in CSE. My passion lies in hardware design and modeling digital circuits. I primarily work with Verilog HDL and am expanding my skill set to include SystemVerilog for advanced verification.`;
+export const HERO_CONTENT = `I'm an electronics and communication engineering student at PES University RR campus, with a passion for hardware design and digital circuit modeling. I work extensively with Verilog HDL, SystemC, and various EDA tools, while also exploring AI/ML applications in hardware verification and bioinformatics.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+export const ABOUT_TEXT = `I am a dedicated Electronics and Communication Engineering student with expertise spanning hardware design, digital circuit verification, and AI/ML applications. My technical journey encompasses working with Verilog, SystemC, Python, and various EDA tools like Cadence Virtuoso. I specialize in systolic array architectures, hardware verification, and have developed innovative solutions combining bioinformatics with AI. My projects range from brain tumor classification systems to hardware Trojan detection using transformer models. I thrive on solving complex technical challenges and continuously expanding my knowledge in both hardware and software domains. Outside of academics, I'm a competitive speed skater with national-level achievements and actively contribute to the IEEE club at my university.`;
 
 export const EXPERIENCES = [
   {
-    year: "2023 - Present",
-    role: "Senior Full Stack Developer",
-    company: "Google Inc.",
-    description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
-  },
-  {
-    year: "2022 - 2023",
-    role: "Frontend Developer",
-    company: "Adobe",
-    description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
-  },
-  {
-    year: "2021 - 2022",
-    role: "Full Stack Developer",
-    company: "Facebook",
-    description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
-  },
-  {
-    year: "2020 - 2021",
-    role: "Software Engineer",
-    company: "Paypal",
-    description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
+    year: "May 2023 - Present",
+    role: "Web Developer",
+    company: "IEEE RAS Club, PES University",
+    description: `Collaborating with the web development team at the IEEE club, contributing to various projects and initiatives. Working on club website development and technical project implementations using modern web technologies.`,
+    technologies: ["HTML", "CSS", "Javascript", "ReactJS", "NodeJS"],
   },
 ];
 
-export const PROJECTS = [{
-  title: "Portfolio Website",
-  image: project3,
-  description:
-    "A personal portfolio website showcasing projects, skills, and contact information.",
-  technologies: ["HTML", "CSS Tailwind", "React", "Bootstrap"],
-},
-{
-  title: "Blood donation website",
-  image: project1,
-  description:
-    "Lifeline Connect, developed at a hackathon, connects hospitals, blood banks, and donors for blood donations and summarizes medical reports for doctors, with plans to incorporate machine learning for disease detection.",
-  technologies: ["HTML", "React", "Node.js", "tailwind"],
-},
-{
-  title: "Car game",
-  image: project2,
-  description:
-    "A b basic Car game with pygame modules tkinter based application",
-  technologies: ["Python"],
-},
-
-{
-  title: "Advanced calculator matlab website",
-  image: project4,
-  description:
-    "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-  technologies: ["HTML", "CSS", "Python", "Matlab", "Flask","Javascript"],
-},
+export const PROJECTS = [
+  {
+    title: "Brain Tumor Classification & Treatment Recommendation",
+    image: project1,
+    description:
+      "Designed an end-to-end bioinformatics pipeline leveraging DNABERT for DNA sequence analysis and SmileBERT for AI-driven molecular generation. Built interactive interface with real-time visual outputs for personalized treatment recommendations.",
+    technologies: ["Python", "PyTorch", "HuggingFace", "RDKit", "DNABERT", "SmileBERT"],
+  },
+  {
+    title: "Hardware Trojan Detection System",
+    image: project2,
+    description:
+      "Built a hardware Trojan detection system for Verilog ALU designs using fine-tuned GPT-2 transformer model. Computes code perplexity scores and flags anomalies exceeding 20% threshold as potential Trojans.",
+    technologies: ["Python", "PyTorch", "GPT-2", "Verilog", "Matplotlib"],
+  },
+  {
+    title: "2D Floorplan to 3D and AR Visualization",
+    image: project3,
+    description:
+      "Built end-to-end 2D-to-3D conversion pipeline using OpenCV for generating 3D models from floorplan images. Extended functionality to AR using Unity AR Foundation for real-world placement and interaction, with GAN models for 2D floorplan generation.",
+    technologies: ["Python", "OpenCV", "Unity", "AR Foundation", "GANs", "Swagger API"],
+  },
+  {
+    title: "Systolic Array Architectures on Cadence Virtuoso",
+    image: project4,
+    description:
+      "Implemented 7 variants of systolic array architectures in SystemC and simulated on Cadence Virtuoso. Conducted detailed DC and parametric analysis for timing validation, pipeline balancing, and functional verification of convolution operations.",
+    technologies: ["SystemC", "Cadence Virtuoso", "Verilog", "ModelSim", "GTKWave"],
+  },
 ];
 
 export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
+  address: "Bangalore, Karnataka, India",
+  phoneNo: "+91 9844334151",
+  email: "tusharprabhu2004@gmail.com",
 };
