@@ -103,6 +103,14 @@ const technologies = () => {
           <VscCode className="text-5xl text-purple-400" />
           <span className="text-xs text-center block mt-1 text-gray-300">Verilog</span>
         </div>
+        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+          <span role="img" aria-label="FPGA" className="text-5xl">🔌</span>
+          <span className="text-xs text-center block mt-1 text-gray-300">FPGA</span>
+        </div>
+        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+          <span role="img" aria-label="Raspberry Pi" className="text-5xl">🍓</span>
+          <span className="text-xs text-center block mt-1 text-gray-300"> RPi</span>
+        </div>
 
         <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
           <SiGnubash className="text-5xl text-gray-300" />
