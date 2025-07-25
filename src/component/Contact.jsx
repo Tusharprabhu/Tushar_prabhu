@@ -1,14 +1,40 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate contact container from top
+      gsap.fromTo(
+        ".contact-container",
+        {
+          opacity: 0,
+          y: -100,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".contact-container",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, contactRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <motion.div
-      whileInView={{ opacity: 1, y: 0 }}
-      initial={{ opacity: 0, y: -100 }}
-      transition={{ duration: 0.5 }}
-      className="border-b border-neutral-900 pb-4"
-    >
+    <div ref={contactRef} className="contact-container border-b border-neutral-900 pb-4">
       <h1 className="mt-10 text-center text-4xl font-bemirs">Contact me</h1>
       <section class="bg-inherrit ">
         <div class="container px-6 py-12 mx-auto">
@@ -109,7 +135,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 };
 

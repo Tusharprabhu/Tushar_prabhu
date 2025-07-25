@@ -76,8 +76,8 @@ const Hero = () => {
           >
             Electronics and Communication Engineer
           </span>
-          <p className="text-neutral-300 max-w-2xl mx-auto px-4 text-lg leading-relaxed">
-            {HERO_CONTENT}
+          <p className="text-neutral-300 mt-12 max-w-2xl mx-auto px-4 text-lg leading-relaxed">
+            {/* {HERO_CONTENT} */}
           </p>
         </div>
       </div>
