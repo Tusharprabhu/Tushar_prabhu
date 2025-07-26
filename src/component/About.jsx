@@ -11,6 +11,30 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.utils.toArray(".image-container").forEach(function(container) {
+        let image = container.querySelector("img");
+        
+        if (image) {
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: aboutRef.current, // Use the About section as trigger
+              scrub: true,
+              pin: false,
+              start: "top 100%",
+              end: "bottom 0%", 
+
+            },
+          }); 
+          tl.from(image, {
+            yPercent: -20,
+            ease: "none",
+          }).to(image, {
+            yPercent: 20,
+            ease: "none",
+          }); 
+        }
+      });
+
       // Animate image from left
       gsap.fromTo(
         ".about-image",
@@ -63,8 +87,14 @@ const About = () => {
       </h1>
       <div className="flex flex-wrap mt-8 lg:mt-32">
         <div className="about-image w-full lg:w-1/2 lg:p-8">
-          <div className="flex items-center justify-center">
-            <img className="rounded-2xl" src={aboutImg} alt="about" />
+          <div className="flex items-center justify-center h-full max-w-full overflow-hidden">
+            <div className="image-container image-one w-full max-w-md lg:max-w-lg">
+              <img 
+                className="rounded-2xl" 
+                src={aboutImg} 
+                alt="about"
+              />
+            </div>
           </div>
         </div>
         <div className="about-text w-full lg:w-1/2">
