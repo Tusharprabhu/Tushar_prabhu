@@ -60,59 +60,59 @@ const technologies = () => {
   }, []);
 
   return (
-    <div ref={techRef} className="border-b border-neutral-800 pb-24">
+    <div ref={techRef} className="border-b border-neutral-900 pb-24">
       <h1 className="m-10 text-center text-4xl font-bemirs">Technologies</h1>
       <div className="tech-container flex flex-wrap items-center justify-center gap-4">
         {/* Programming Languages */}
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <BiLogoPython className="text-5xl text-yellow-300" />
         </div>
         
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <TbBrandCpp className="text-5xl text-blue-400" />
         </div>
 
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <BiLogoJavascript className="text-5xl text-yellow-400" />
         </div>
 
         {/* Web Technologies */}
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <RiReactjsFill className="text-5xl text-cyan-400" />
         </div>
 
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <FaNodeJs className="text-5xl text-green-300" />
         </div>
 
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <BiLogoHtml5 className="text-5xl text-orange-500" />
         </div>
 
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <BiLogoCss3 className="text-5xl text-blue-500" />
         </div>
 
         {/* AI/ML Libraries */}
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <SiPytorch className="text-5xl text-red-500" />
         </div>
 
         {/* Hardware Design */}
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <VscCode className="text-5xl text-purple-400" />
           <span className="text-xs text-center block mt-1 text-gray-300">Verilog</span>
         </div>
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <span role="img" aria-label="FPGA" className="text-5xl">🔌</span>
           <span className="text-xs text-center block mt-1 text-gray-300">FPGA</span>
         </div>
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <span role="img" aria-label="Raspberry Pi" className="text-5xl">🍓</span>
           <span className="text-xs text-center block mt-1 text-gray-300"> RPi</span>
         </div>
 
-        <div className="tech-icon rounded-2xl border-4 border-neutral-800 p-4">
+        <div className="tech-icon rounded-2xl border-4 border-neutral-900 p-4">
           <SiGnubash className="text-5xl text-gray-300" />
         </div>
       </div>

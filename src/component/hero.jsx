@@ -1,20 +1,21 @@
 import React, { useEffect, useRef } from "react";
-import { HERO_CONTENT } from "../constants";
-import profilePic from "../assets/Tushar.png";
+import profilePic from "../assets/Tusharimage.png";
+import brush from "../assets/brushbg.png";
 import { gsap } from "gsap";
-import "../index.css"; 
+import "../index.css";
 
 const Hero = () => {
   const glitchRef = useRef(null);
+  const imageRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    // Set initial state for glitch elements
     gsap.set('.glitch', { opacity: 1 });
-    
-    // Create timeline that runs only once (no repeat)
-    const tl = gsap.timeline({delay:1});
 
-    tl.to('.glitch', 0.1, { skewX: 70, ease: "power4.inOut" })
+    const glitchTl = gsap.timeline({ delay: 1 });
+
+    glitchTl
+      .to('.glitch', 0.1, { skewX: 70, ease: "power4.inOut" })
       .to('.glitch', 0.04, { skewX: 0, ease: "power4.inOut" })
       .to('.glitch', 0.04, { opacity: 0 })
       .to('.glitch', 0.04, { opacity: 1 })
@@ -34,51 +35,100 @@ const Hero = () => {
       .to('.glitch', 0.02, { scaleY: 1.1, ease: "power4.inOut" })
       .to('.glitch', 0.04, { scaleY: 1, ease: "power4.inOut" });
 
-    return () => tl.kill();
-}, []);
+    return () => glitchTl.kill();
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const image = imageRef.current;
+
+    function updateTransform() {
+      const x = image.style.getPropertyValue('--parallax-x') || '0px';
+      const y = image.style.getPropertyValue('--parallax-y') || '0px';
+      image.style.transform = `translate(-50%, -50%) translate(${x}, ${y})`;
+    }
+
+    function parallaxTo(offsetX, offsetY, duration, ease) {
+      gsap.to(image, {
+        '--parallax-x': `${offsetX}px`,
+        '--parallax-y': `${offsetY}px`,
+        duration,
+        ease,
+        onUpdate: updateTransform
+      });
+    }
+
+    const handleMouseMove = (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      parallaxTo((x - 0.5) * -40, (y - 0.5) * -40, 0.5, 'power3.out');
+    };
+
+    const handleMouseLeave = () => {
+      parallaxTo(0, 0, 0.6, 'power2.out');
+    };
+
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center border-b border-neutral-900">
-      {/* Background Image */}
-      <div className="absolute inset-0 flex items-center justify-center z-0 transition-opacity duration-700 opacity-40">
-        <img
-          src={profilePic}
-          alt="Tushar Prabhu"
-          className="w-auto h-[80vh] max-w-none object-cover rounded-2xl brightness-30 grayscale mb-40"
-        />
-      </div>
+    <div
+      ref={containerRef}
+      className="relative mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden border-b border-neutral-900"
+    >
+      {/* Parallax Tushar image */}
+      <div
+        ref={imageRef}
+        className="absolute top-1/2 left-1/2 w-full h-full"
+        style={{
+          backgroundImage: `url(${profilePic})`,
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 1,
+        }}
+      />
+
+      {/* Brush overlay */}
+      <div
+        className="absolute top-0 left-0 w-full h-full pointer-events-none z-10"
+        style={{
+          backgroundImage: `url(${brush})`,
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
       {/* Text Content */}
-      <div className="relative z-10 text-center mb-32">
+      <div className="relative z-20 text-center top-[25%] px-4">
         <div className="glitch-container relative" ref={glitchRef}>
-          <h1
-            className="text-8xl md:text-9xl lg:text-[10rem] font-bemirs tracking-tight text-white font-bold relative opacity-0"
-            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)', WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}
-          >
+          <h1 className="glitch top text-[10vw] font-bemirs font-bold tracking-tight text-white">
+            TUSHAR PRABHU
+          </h1>
+          <h1 className="glitch bottom text-[10vw] font-bemirs font-bold tracking-tight text-white">
             TUSHAR PRABHU
           </h1>
           <h1
-            className="glitch top text-8xl md:text-9xl lg:text-[10rem] font-bemirs tracking-tight text-white font-bold"
-            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)', WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}
+            className="text-[10vw] font-bemirs font-bold tracking-tight text-white relative opacity-0"
+            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
           >
-            TUSHAR PRABHU 
-          </h1>
-          <h1
-            className="glitch bottom text-8xl md:text-9xl lg:text-[10rem] font-bemirs tracking-tight text-white font-bold"
-            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)', WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}
-          >
-            TUSHAR PRABHU 
+            TUSHAR PRABHU
           </h1>
         </div>
-        <div className="mt-8 transition-opacity duration-700 opacity-100">
-          <span
-            className="text-2xl md:text-3xl
-            tracking-tight text-white font-extralight block mb-6"
-          >
+
+        <div className="mt-8">
+          <span className="text-xl md:text-2xl tracking-tight text-white font-extralight block mb-6">
             Electronics and Communication Engineer
           </span>
-          <p className="text-neutral-300 mt-12 max-w-2xl mx-auto px-4 text-lg leading-relaxed">
-            {/* {HERO_CONTENT} */}
-          </p>
         </div>
       </div>
     </div>

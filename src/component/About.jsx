@@ -85,7 +85,7 @@ const About = () => {
         About
         <span className="text-neutral-500">Me</span>
       </h1>
-      <div className="flex flex-wrap mt-8 lg:mt-32">
+      <div className="flex flex-wrap lg:mt-32">
         <div className="about-image w-full lg:w-1/2 lg:p-8">
           <div className="flex items-center justify-center h-full max-w-full overflow-hidden">
             <div className="image-container image-one w-full max-w-md lg:max-w-lg">
