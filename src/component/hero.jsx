@@ -15,25 +15,25 @@ const Hero = () => {
     const glitchTl = gsap.timeline({ delay: 1 });
 
     glitchTl
-      .to('.glitch', 0.1, { skewX: 70, ease: "power4.inOut" })
-      .to('.glitch', 0.04, { skewX: 0, ease: "power4.inOut" })
-      .to('.glitch', 0.04, { opacity: 0 })
-      .to('.glitch', 0.04, { opacity: 1 })
-      .to('.glitch', 0.04, { x: -20 })
-      .to('.glitch', 0.04, { x: 0 })
+      .to('.glitch', { skewX: 70, ease: "power4.inOut", duration: 0.1 })
+      .to('.glitch', { skewX: 0, ease: "power4.inOut", duration: 0.04 })
+      .to('.glitch', { opacity: 0, duration: 0.04 })
+      .to('.glitch', { opacity: 1, duration: 0.04 })
+      .to('.glitch', { x: -20, duration: 0.04 })
+      .to('.glitch', { x: 0, duration: 0.04 })
       .add("split", 0)
-      .to('.glitch.top', 0.5, { x: -60, ease: "power4.inOut" }, 'split')
-      .to('.glitch.bottom', 0.5, { x: 60, ease: "power4.inOut" }, 'split')
+      .to('.glitch.top', { x: -60, ease: "power4.inOut", duration: 0.5 }, 'split')
+      .to('.glitch.bottom', { x: 60, ease: "power4.inOut", duration: 0.5 }, 'split')
       .set('.glitch', { textShadow: "-3px 0 red" }, 'split')
-      .to('.glitch-container', 0, { scale: 1.1 }, 'split')
-      .to('.glitch-container', 0, { scale: 1 }, "+=0.02")
+      .to('.glitch-container', { scale: 1.1, duration: 0 }, 'split')
+      .to('.glitch-container', { scale: 1, duration: 0 }, "+=0.02")
       .set('.glitch', { textShadow: "none" }, "+=0.09")
       .set('.glitch', { textShadow: "-3px 0 lime" }, 'split')
       .set('.glitch', { textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }, "+=0.01")
-      .to('.glitch.top', 0.2, { x: 0, ease: "power4.inOut" })
-      .to('.glitch.bottom', 0.2, { x: 0, ease: "power4.inOut" })
-      .to('.glitch', 0.02, { scaleY: 1.1, ease: "power4.inOut" })
-      .to('.glitch', 0.04, { scaleY: 1, ease: "power4.inOut" });
+      .to('.glitch.top', { x: 0, ease: "power4.inOut", duration: 0.2 })
+      .to('.glitch.bottom', { x: 0, ease: "power4.inOut", duration: 0.2 })
+      .to('.glitch', { scaleY: 1.1, ease: "power4.inOut", duration: 0.02 })
+      .to('.glitch', { scaleY: 1, ease: "power4.inOut", duration: 0.04 });
 
     return () => glitchTl.kill();
   }, []);
@@ -79,56 +79,60 @@ const Hero = () => {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden border-b border-neutral-900"
-    >
-      {/* Parallax Tushar image */}
+    <div className="relative mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden">
       <div
-        ref={imageRef}
-        className="absolute top-1/2 left-1/2 w-full h-full"
-        style={{
-          backgroundImage: `url(${profilePic})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 1,
-        }}
-      />
+        ref={containerRef}
+        className="absolute mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden border-b border-neutral-900"
+      >
 
-      {/* Brush overlay */}
-      <div
-        className="absolute top-0 left-0 w-full h-full pointer-events-none z-10"
-        style={{
-          backgroundImage: `url(${brush})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+          {/* Parallax Tushar image */}
+          <div
+            ref={imageRef}
+            className="absolute top-1/2 left-1/2 w-full h-full"
+            style={{
+              backgroundImage: `url(${profilePic})`,
+              backgroundSize: '40%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 1,
+            }}
+          />
 
-      {/* Text Content */}
-      <div className="relative z-20 text-center top-[25%] px-4">
-        <div className="glitch-container relative" ref={glitchRef}>
-          <h1 className="glitch top text-[10vw] font-bemirs font-bold tracking-tight text-white">
-            TUSHAR PRABHU
-          </h1>
-          <h1 className="glitch bottom text-[10vw] font-bemirs font-bold tracking-tight text-white">
-            TUSHAR PRABHU
-          </h1>
-          <h1
-            className="text-[10vw] font-bemirs font-bold tracking-tight text-white relative opacity-0"
-            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
-          >
-            TUSHAR PRABHU
-          </h1>
-        </div>
 
-        <div className="mt-8">
-          <span className="text-xl md:text-2xl tracking-tight text-white font-extralight block mb-6">
-            Electronics and Communication Engineer
-          </span>
+        {/* Brush overlay */}
+        <div
+          className="absolute top-0 left-0 w-full h-full pointer-events-none z-10"
+          style={{
+            backgroundImage: `url(${brush})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+
+        {/* Text Content */}
+        <div className="relative z-20 text-center top-[25%] px-4">
+          <div className="glitch-container relative" ref={glitchRef}>
+            <h1 className="glitch top text-[10vw] font-bemirs font-bold tracking-tight text-white">
+              TUSHAR PRABHU
+            </h1>
+            <h1 className="glitch bottom text-[10vw] font-bemirs font-bold tracking-tight text-white">
+              TUSHAR PRABHU
+            </h1>
+            <h1
+              className="text-[10vw] font-bemirs font-bold tracking-tight text-white relative opacity-0"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
+            >
+              TUSHAR PRABHU
+            </h1>
+          </div>
+
+          <div className="mt-8">
+            <span className="text-xl md:text-2xl tracking-tight text-white font-extralight block mb-6">
+              Electronics and Communication Engineer
+            </span>
+          </div>
         </div>
       </div>
     </div>
