@@ -82,23 +82,21 @@ const Hero = () => {
     <div className="relative mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden">
       <div
         ref={containerRef}
-        className="absolute mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden border-b border-neutral-900"
+        className="absolute w-full h-[80vh] mb-[30%] overflow-hidden border-b border-neutral-900"
       >
-
-          {/* Parallax Tushar image */}
-          <div
-            ref={imageRef}
-            className="absolute top-1/2 left-1/2 w-full h-full"
-            style={{
-              backgroundImage: `url(${profilePic})`,
-              backgroundSize: '40%',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-            }}
-          />
-
+        {/* Parallax Tushar image */}
+        <div
+          ref={imageRef}
+          className="absolute top-1/2 left-1/2 w-full h-full"
+          style={{
+            backgroundImage: `url(${profilePic})`,
+            backgroundSize: '40%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+          }}
+        />
 
         {/* Brush overlay */}
         <div

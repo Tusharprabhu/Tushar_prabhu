@@ -71,7 +71,7 @@ const Project = () => {
             ease: "power2.out",
           });
         });
-      });
+      }); 
     }, projectsRef);
 
     return () => ctx.revert();
