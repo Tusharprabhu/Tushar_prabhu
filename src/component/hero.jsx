@@ -79,49 +79,40 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative mx-auto w-full max-w-[2098px] h-[80vh] min-h-[20vh] overflow-hidden">
+    <div className="relative mx-auto w-full h-screen min-h-[20vh] overflow-hidden">
       <div
         ref={containerRef}
-        className="absolute w-full h-[80vh] mb-[30%] overflow-hidden border-b border-neutral-900"
+        className="absolute w-full h-screen overflow-hidden border-b border-neutral-900"
       >
         {/* Parallax Tushar image */}
         <div
           ref={imageRef}
-          className="absolute top-1/2 left-1/2 w-full h-full"
+          className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 z-[1] bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${profilePic})`,
             backgroundSize: '40%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            transform: 'translate(-50%, -50%)',
-            zIndex: 1,
           }}
         />
 
         {/* Brush overlay */}
         <div
-          className="absolute top-0 left-0 w-full h-full pointer-events-none z-10"
+          className="absolute w-full h-full pointer-events-none z-10 bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${brush})`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
+            backgroundSize: '46%',
           }}
         />
 
         {/* Text Content */}
-        <div className="relative z-20 text-center top-[25%] px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4">
           <div className="glitch-container relative" ref={glitchRef}>
-            <h1 className="glitch top text-[10vw] font-bemirs font-bold tracking-tight text-white">
+            <h1 className="glitch top absolute text-[10vw] font-bemirs font-bold tracking-tight text-white drop-shadow-md">
               TUSHAR PRABHU
             </h1>
-            <h1 className="glitch bottom text-[10vw] font-bemirs font-bold tracking-tight text-white">
+            <h1 className="glitch bottom absolute text-[10vw] font-bemirs font-bold tracking-tight text-white drop-shadow-md">
               TUSHAR PRABHU
             </h1>
-            <h1
-              className="text-[10vw] font-bemirs font-bold tracking-tight text-white relative opacity-0"
-              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
-            >
+            <h1 className="text-[10vw] font-bemirs font-bold tracking-tight text-white relative opacity-0 drop-shadow-md">
               TUSHAR PRABHU
             </h1>
           </div>

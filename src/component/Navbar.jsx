@@ -4,27 +4,49 @@ import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import Navtitle from "../assets/navtitle.png";
+
 const navbar = () => {
   return (
-    <nav className="relative z-50 bg-black/90 backdrop-blur-md pt-7 pb-4 lg:px-5 flex item-center justify-between border-b border-neutral-800/30">
-      <div className="flex flex-shrink-0 items-center">
-        <img src={Navtitle} className="h-12 mt-1.5" alt="title" />
+    <>
+      {/* Logo - Top Left Floating */}
+      <div className="fixed top-6 left-6 z-50">
+        <div className="bg-black/80 backdrop-blur-md rounded-2xl p-3 border border-neutral-700/50 shadow-2xl">
+          <img src={Navtitle} className="h-10" alt="title" />
+        </div>
       </div>
-      <div className="m-0 flex items-center justify-center gap-4 text-2xl">
-        <a href="https://www.facebook.com/tushar.prabhu.359" className="text-white hover:text-blue-600">
-          <FaFacebook />
-        </a>
-        <a href="https://www.instagram.com/tu_shaar2.0/" className="text-white hover:text-pink-600">
-          <FaInstagram />
-        </a>
-        <a href="https://www.linkedin.com/in/tushar-prabhuu/" className="text-white hover:text-blue-300">
-          <FaLinkedin />
-        </a>
-        <a href="https://github.com/Tusharprabhu" className="text-white hover:text-slate-400">
-          <FaGithub />
-        </a>
+
+      {/* Social Links - Floating Dock */}
+      <div className="fixed top-6 right-6 z-50">
+        <div className="bg-black/80 backdrop-blur-md rounded-2xl px-6 py-3 border border-neutral-700/50 shadow-2xl">
+          <div className="flex items-center gap-5 text-xl">
+            <a 
+              href="https://www.facebook.com/tushar.prabhu.359" 
+              className="text-white hover:text-blue-600 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-blue-600/10"
+            >
+              <FaFacebook />
+            </a>
+            <a 
+              href="https://www.instagram.com/tu_shaar2.0/" 
+              className="text-white hover:text-pink-600 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-pink-600/10"
+            >
+              <FaInstagram />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/tushar-prabhuu/" 
+              className="text-white hover:text-blue-300 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-blue-300/10"
+            >
+              <FaLinkedin />
+            </a>
+            <a 
+              href="https://github.com/Tusharprabhu" 
+              className="text-white hover:text-slate-400 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-slate-400/10"
+            >
+              <FaGithub />
+            </a>
+          </div>
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 
