@@ -55,7 +55,6 @@ const About = () => {
         }
       );
 
-      // Animate text from right
       gsap.fromTo(
         ".about-text",
         {
@@ -78,7 +77,6 @@ const About = () => {
 
     return () => ctx.revert();
   }, []);
-
   return (
     <div ref={aboutRef} className="border-b border-neutral-900 pb-4 lg:pb-32 mt-32 lg:mt-0">
       <h1 className="my-20 text-center text-4xl font-bemirs">
