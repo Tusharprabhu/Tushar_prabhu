@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const aboutRef = useRef(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray(".image-container").forEach(function(container) {
@@ -17,7 +16,7 @@ const About = () => {
         if (image) {
           let tl = gsap.timeline({
             scrollTrigger: {
-              trigger: aboutRef.current, // Use the About section as trigger
+              trigger: aboutRef.current, 
               scrub: true,
               pin: false,
               start: "top 100%",
@@ -34,8 +33,6 @@ const About = () => {
           }); 
         }
       });
-
-      // Animate image from left
       gsap.fromTo(
         ".about-image",
         {
