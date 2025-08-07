@@ -9,7 +9,6 @@ const Contact = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Use the ref directly instead of class selector
       if (contactRef.current) {
         gsap.fromTo(
           contactRef.current,
