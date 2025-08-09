@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PROJECTS } from "../constants";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,12 +8,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Project = () => {
   const projectsRef = useRef(null);
+  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate project images from left
+      // Animate cards on scroll
       gsap.fromTo(
-        ".project-image",
+        ".expandable-card",
+        {
+          opacity: 0,
+          y: 100,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".expandable-cards",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate title
+      gsap.fromTo(
+        ".projects-title",
         {
           opacity: 0,
           x: -100,
@@ -21,93 +46,94 @@ const Project = () => {
         {
           opacity: 1,
           x: 0,
-          duration: 0.7,
-          stagger: 0.2,
+          duration: 1,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: ".project-image",
-            start: "top 80%",
-            end: "bottom 20%",
+            trigger: ".projects-title",
+            start: "top 90%",
             toggleActions: "play none none reverse",
           },
         }
       );
 
-      // Animate project content from right
+      // Animate the underline
       gsap.fromTo(
-        ".project-content",
+        ".projects-title::after",
         {
-          opacity: 0,
-          x: 100,
+          width: 0,
         },
         {
-          opacity: 1,
-          x: 0,
-          duration: 0.7,
-          stagger: 0.2,
+          width: "80px",
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.5,
           scrollTrigger: {
-            trigger: ".project-content",
-            start: "top 80%",
-            end: "bottom 20%",
+            trigger: ".projects-title",
+            start: "top 90%",
             toggleActions: "play none none reverse",
           },
         }
       );
-
-      // Add hover effects for images
-      const images = document.querySelectorAll(".project-image img");
-      images.forEach((img) => {
-        img.addEventListener("mouseenter", () => {
-          gsap.to(img, {
-            scale: 1.1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        img.addEventListener("mouseleave", () => {
-          gsap.to(img, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      }); 
     }, projectsRef);
 
     return () => ctx.revert();
   }, []);
 
+  const handleCardClick = (index) => {
+    setActiveCard(index);
+    
+    // Smooth scroll to bring the active card into view
+    const cardElement = document.querySelectorAll('.expandable-card')[index];
+    if (cardElement) {
+      cardElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+  };
+
   return (
-    <div ref={projectsRef} className="border-b border-neutral-900 pb-4">
-      <h1 className="my-20 text-center text-4xl font-bemirs">Projects</h1>
-      <div>
-        {PROJECTS.map((project, index) => (
-          <div key={index} className="m-16 flex flex-wrap lg:justify-center">
-            <div className="project-image w-full lg:w-1/4">
-              <img
-                src={project.image}
-                width={150}
-                height={150}
-                alt={project.title}
-                className="mb-6 rounded cursor-pointer"
-              />
+    <div ref={projectsRef} className="border-b border-neutral-900 pb-8">
+      <div className="projects-container">
+        <h2 className="projects-title font-bemirs text-white">
+          Projects
+        </h2>
+        
+        <div className="expandable-cards">
+          {PROJECTS.map((project, index) => (
+            <div
+              key={index}
+              className={`expandable-card ${activeCard === index ? 'active' : ''}`}
+              style={{
+                backgroundImage: `url(${project.image})`,
+              }}
+              onClick={() => handleCardClick(index)}
+            >
+              {/* Card Number */}
+              <div className="card-number">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              
+              {/* Content */}
+              <div className="card-content">
+                <h3 className="card-title">{project.title}</h3>
+                
+                <p className="card-description">
+                  {project.description}
+                </p>
+                
+                <div className="card-technologies">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="project-content w-full max-x-xl lg:w-3/4">
-              <h6 className="mb-2 font-semibold text-pink-600">
-                {project.title}
-              </h6>
-              <p className="mb-4 text-neutral-400">{project.description}</p>
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="mb-4 text-neutral-500 px-2 py-1 text-sm font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
