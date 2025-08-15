@@ -35,7 +35,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div ref={contactRef} className="contact-container border-b border-neutral-900 pb-4 h-screen">
+    <div ref={contactRef} className="contact-container border-b border-neutral-900 pb-4 h-screen flex flex-col items-center justify-center">
       <h1 className="mt-10 text-center text-4xl font-bemirs">Contact me</h1>
       <section className="bg-black ">
         <div className="container px-6 py-12 mx-auto">
