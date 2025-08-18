@@ -25,10 +25,10 @@ const About = () => {
             },
           }); 
           tl.from(image, {
-            yPercent: -20,
+            yPercent: -25,
             ease: "none",
           }).to(image, {
-            yPercent: 20,
+            yPercent: 25,
             ease: "none",
           }); 
         }

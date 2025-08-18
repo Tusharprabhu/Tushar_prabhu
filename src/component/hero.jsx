@@ -20,18 +20,19 @@ const Hero = () => {
       .to('.glitch', { opacity: 0, duration: 0.04 })
       .to('.glitch', { opacity: 1, duration: 0.04 })
       .to('.glitch', { x: -20, duration: 0.04 })
+      .set('.glitch', { textShadow: "-2px 0 2px red" }, 'split') // add blur to red
       .to('.glitch', { x: 0, duration: 0.04 })
       .add("split", 0)
-      .to('.glitch.top', { x: -60, ease: "power4.inOut", duration: 0.5 }, 'split')
-      .to('.glitch.bottom', { x: 60, ease: "power4.inOut", duration: 0.5 }, 'split')
-      .set('.glitch', { textShadow: "-3px 0 red" }, 'split')
+      .to('.glitch.top', { x: -30, ease: "power4.inOut", duration: 0.5 }, 'split')
+      .to('.glitch.bottom', { x: 30, ease: "power4.inOut", duration: 0.5 }, 'split')
+      .set('.glitch', { textShadow: "3px 0 2px lime" }, 'split') // add blur to lime
       .to('.glitch-container', { scale: 1.1, duration: 0 }, 'split')
       .to('.glitch-container', { scale: 1, duration: 0 }, "+=0.02")
-      .set('.glitch', { textShadow: "none" }, "+=0.09")
-      .set('.glitch', { textShadow: "-3px 0 lime" }, 'split')
-      .set('.glitch', { textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }, "+=0.01")
+      .set('.glitch', { textShadow: "2px 0 2px lime" }, "+=0.05") // add blur to lime
+      .set('.glitch', { textShadow: "-2px 0 2px red, 1px 0 1px lime" }, "+=0.02") // add blur to both
       .to('.glitch.top', { x: 0, ease: "power4.inOut", duration: 0.2 })
       .to('.glitch.bottom', { x: 0, ease: "power4.inOut", duration: 0.2 })
+      .set('.glitch', { textShadow: "2px 2px 1px rgba(0,0,0,0.5)" }, "+=0.05") // increase blur
       .to('.glitch', { scaleY: 1.1, ease: "power4.inOut", duration: 0.02 })
       .to('.glitch', { scaleY: 1, ease: "power4.inOut", duration: 0.04 });
 
