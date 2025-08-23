@@ -46,13 +46,25 @@ const StickyNav = () => {
   useEffect(() => {
     // GSAP ScrollTrigger for progress bar
     if (progressRef.current) {
+      // Set initial width to 0
+      gsap.set(progressRef.current, { width: '0%' });
+      
       gsap.to(progressRef.current, {
         width: '100%',
         ease: 'none',
         scrollTrigger: { 
+          trigger: "body",
           scrub: 0.3,
           start: "top top",
-          end: "bottom bottom"
+          end: "bottom bottom",
+          onUpdate: self => {
+            // Only update progress when sticky nav is visible
+            if (showNav) {
+              gsap.set(progressRef.current, { width: `${self.progress * 100}%` });
+            } else {
+              gsap.set(progressRef.current, { width: '0%' });
+            }
+          }
         }
       });
     }
