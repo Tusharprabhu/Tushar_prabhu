@@ -80,6 +80,48 @@ const Hero = () => {
 
   return (
     <div className="relative mx-auto w-full h-screen min-h-[20vh] overflow-hidden -mt-16">
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .glitch-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            display: inline-block;
+          }
+
+          .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            color: #fff;
+            text-transform: uppercase;
+            pointer-events: none;
+          }
+
+          .glitch.top {
+            -webkit-clip-path: inset(0 0 50% 0);
+            clip-path: inset(0 0 50% 0);
+            z-index: 3;
+          }
+
+          .glitch.bottom {
+            -webkit-clip-path: inset(50% 0 0 0);
+            clip-path: inset(50% 0 0 0);
+            z-index: 2;
+          }
+
+          .redShadow {
+            text-shadow: -2px 0 red !important;
+          }
+
+          .greenShadow {
+            text-shadow: -3px 0 lime !important;
+          }
+        `
+      }} />
       <div
         ref={containerRef}
         className="absolute w-full h-screen overflow-hidden border-b border-neutral-900"
