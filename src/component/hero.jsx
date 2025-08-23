@@ -80,7 +80,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative mx-auto w-full h-screen min-h-[20vh] overflow-hidden">
+    <div className="relative mx-auto w-full h-screen min-h-[20vh] overflow-hidden -mt-16">
       <div
         ref={containerRef}
         className="absolute w-full h-screen overflow-hidden border-b border-neutral-900"
