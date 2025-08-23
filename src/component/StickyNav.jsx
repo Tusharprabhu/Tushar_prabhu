@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { VscHome, VscAccount, VscTools, VscCode, VscMail } from "react-icons/vsc";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StickyNav = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [showNav, setShowNav] = useState(false);
   const navRef = useRef(null);
   const itemsRef = useRef([]);
@@ -12,15 +14,9 @@ const StickyNav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate scroll progress
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(progress);
-
       // Show nav when scrolled past home page viewport
       const homeViewportHeight = window.innerHeight;
-      setShowNav(scrollTop > homeViewportHeight * 0.8); // Show when 80% past home viewport
+      setShowNav(window.pageYOffset > homeViewportHeight * 0.8);
 
       // Determine active section based on scroll position
       const scrollPosition = window.scrollY + 100;
@@ -48,6 +44,19 @@ const StickyNav = () => {
   }, []);
 
   useEffect(() => {
+    // GSAP ScrollTrigger for progress bar
+    if (progressRef.current) {
+      gsap.to(progressRef.current, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: { 
+          scrub: 0.3,
+          start: "top top",
+          end: "bottom bottom"
+        }
+      });
+    }
+
     // Initialize dock items with GSAP
     itemsRef.current.forEach(item => {
       if (item) {
@@ -80,14 +89,7 @@ const StickyNav = () => {
         item.addEventListener('mouseleave', handleMouseLeave);
       }
     });
-
-    // Progress bar animation
-    if (progressRef.current) {
-      gsap.set(progressRef.current, {
-        height: `${scrollProgress}%`
-      });
-    }
-  }, [scrollProgress]);
+  }, []);
 
   const scrollToSection = (targetSection) => {
     if (targetSection === 'home') {
@@ -221,8 +223,8 @@ const StickyNav = () => {
         <div className="absolute -bottom-2 left-0 w-full h-1 bg-neutral-700/50 rounded-full">
           <div
             ref={progressRef}
-            className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full transition-all duration-100"
-            style={{ width: `${scrollProgress}%` }}
+            className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full"
+            style={{ width: '0%' }}
           />
         </div>
         
