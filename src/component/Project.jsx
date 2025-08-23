@@ -36,7 +36,7 @@ const Project = () => {
         }
       );
 
-      // Animate title
+      // Animate title  
       gsap.fromTo(
         ".projects-title",
         {
@@ -48,25 +48,6 @@ const Project = () => {
           x: 0,
           duration: 1,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".projects-title",
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Animate the underline
-      gsap.fromTo(
-        ".projects-title::after",
-        {
-          width: 0,
-        },
-        {
-          width: "80px",
-          duration: 0.8,
-          ease: "power2.out",
-          delay: 0.5,
           scrollTrigger: {
             trigger: ".projects-title",
             start: "top 90%",

@@ -210,11 +210,11 @@ export default function App() {
       className="w-full text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900"
     >
       <div className="bg-black">
+        <StickyNav />
         <div className=" container max-w-full m-0 px-16 ">
           <Navbar />
           <Hero />
           <div id="sticky-container" className="relative w-full">
-            <StickyNav />
             <About />
             <Technologies />
             <Projects />
