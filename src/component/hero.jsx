@@ -82,43 +82,11 @@ const Hero = () => {
     <div className="relative mx-auto w-full h-screen min-h-[20vh] overflow-hidden -mt-16">
       <style dangerouslySetInnerHTML={{
         __html: `
-          .glitch-container {
-            position: relative;
-            width: 100%;
-            height: auto;
-            text-align: center;
-            display: inline-block;
-          }
-
-          .glitch {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            color: #fff;
-            text-transform: uppercase;
-            pointer-events: none;
-          }
-
           .glitch.top {
-            -webkit-clip-path: inset(0 0 50% 0);
             clip-path: inset(0 0 50% 0);
-            z-index: 3;
           }
-
           .glitch.bottom {
-            -webkit-clip-path: inset(50% 0 0 0);
             clip-path: inset(50% 0 0 0);
-            z-index: 2;
-          }
-
-          .redShadow {
-            text-shadow: -2px 0 red !important;
-          }
-
-          .greenShadow {
-            text-shadow: -3px 0 lime !important;
           }
         `
       }} />
@@ -147,11 +115,11 @@ const Hero = () => {
 
         {/* Text Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4">
-          <div className="glitch-container relative" ref={glitchRef}>
-            <h1 className="glitch top absolute text-[10vw] font-bold tracking-tight text-white drop-shadow-md font-bemirs">
+          <div className="glitch-container relative w-full h-auto text-center inline-block" ref={glitchRef}>
+            <h1 className="glitch top absolute top-0 left-0 right-0 w-full text-white uppercase pointer-events-none z-[3] text-[10vw] font-bold tracking-tight drop-shadow-md font-bemirs">
               TUSHAR PRABHU
             </h1>
-            <h1 className="glitch bottom absolute text-[10vw] font-bold tracking-tight text-white drop-shadow-md font-bemirs">
+            <h1 className="glitch bottom absolute top-0 left-0 right-0 w-full text-white uppercase pointer-events-none z-[2] text-[10vw] font-bold tracking-tight drop-shadow-md font-bemirs">
               TUSHAR PRABHU
             </h1>
             <h1 className="text-[10vw] font-bold tracking-tight text-white relative opacity-0 drop-shadow-md font-bemirs">
