@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import profilePic from "../assets/Tusharimage.png";
 import brush from "../assets/brushbg.png";
 import { gsap } from "gsap";
-import "../index.css";
 
 const Hero = () => {
   const glitchRef = useRef(null);
@@ -20,19 +19,19 @@ const Hero = () => {
       .to('.glitch', { opacity: 0, duration: 0.04 })
       .to('.glitch', { opacity: 1, duration: 0.04 })
       .to('.glitch', { x: -20, duration: 0.04 })
-      .set('.glitch', { textShadow: "-2px 0 2px red" }, 'split') // add blur to red
+      .set('.glitch', { textShadow: "-2px 0 2px red" }, 'split')
       .to('.glitch', { x: 0, duration: 0.04 })
       .add("split", 0)
       .to('.glitch.top', { x: -30, ease: "power4.inOut", duration: 0.5 }, 'split')
       .to('.glitch.bottom', { x: 30, ease: "power4.inOut", duration: 0.5 }, 'split')
-      .set('.glitch', { textShadow: "3px 0 2px lime" }, 'split') // add blur to lime
+      .set('.glitch', { textShadow: "3px 0 2px lime" }, 'split')
       .to('.glitch-container', { scale: 1.1, duration: 0 }, 'split')
       .to('.glitch-container', { scale: 1, duration: 0 }, "+=0.02")
-      .set('.glitch', { textShadow: "2px 0 2px lime" }, "+=0.05") // add blur to lime
-      .set('.glitch', { textShadow: "-2px 0 2px red, 1px 0 1px lime" }, "+=0.02") // add blur to both
+      .set('.glitch', { textShadow: "2px 0 2px lime" }, "+=0.05")
+      .set('.glitch', { textShadow: "-2px 0 2px red, 1px 0 1px lime" }, "+=0.02")
       .to('.glitch.top', { x: 0, ease: "power4.inOut", duration: 0.2 })
       .to('.glitch.bottom', { x: 0, ease: "power4.inOut", duration: 0.2 })
-      .set('.glitch', { textShadow: "2px 2px 1px rgba(0,0,0,0.5)" }, "+=0.05") // increase blur
+      .set('.glitch', { textShadow: "2px 2px 1px rgba(0,0,0,0.5)" }, "+=0.05")
       .to('.glitch', { scaleY: 1.1, ease: "power4.inOut", duration: 0.02 })
       .to('.glitch', { scaleY: 1, ease: "power4.inOut", duration: 0.04 });
 
@@ -107,13 +106,13 @@ const Hero = () => {
         {/* Text Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4">
           <div className="glitch-container relative" ref={glitchRef}>
-            <h1 className="glitch top absolute text-[10vw] font-bemirs font-bold tracking-tight text-white drop-shadow-md">
+            <h1 className="glitch top absolute text-[10vw] font-bold tracking-tight text-white drop-shadow-md font-bemirs">
               TUSHAR PRABHU
             </h1>
-            <h1 className="glitch bottom absolute text-[10vw] font-bemirs font-bold tracking-tight text-white drop-shadow-md">
+            <h1 className="glitch bottom absolute text-[10vw] font-bold tracking-tight text-white drop-shadow-md font-bemirs">
               TUSHAR PRABHU
             </h1>
-            <h1 className="text-[10vw] font-bemirs font-bold tracking-tight text-white relative opacity-0 drop-shadow-md">
+            <h1 className="text-[10vw] font-bold tracking-tight text-white relative opacity-0 drop-shadow-md font-bemirs">
               TUSHAR PRABHU
             </h1>
           </div>
