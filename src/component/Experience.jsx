@@ -86,7 +86,7 @@ const Experience = () => {
             
             {/* Content Section */}
             <div className="experience-content w-full max-w-3xl lg:w-3/4">
-              <div className="p-6">
+              <div className="bg-neutral-900/50 rounded-lg p-6 border border-neutral-800 hover:border-cyan-400/30 transition-colors duration-300">
                 
                 {/* Role and Company */}
                 <div className="mb-4">
