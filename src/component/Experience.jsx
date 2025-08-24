@@ -57,32 +57,71 @@ const Experience = () => {
   }, []);
 
   return (
-    <div ref={experienceRef} className="border-b border-neutral-900 pb-32 mt-32 lg:mt-0">
-      <h1 className="my-20 text-center text-4xl">Experience</h1>
-      <div>
+    <div 
+      id="experience" 
+      ref={experienceRef} 
+      className="border-b border-neutral-900 pb-32 mt-32 lg:mt-0"
+    >
+      {/* Section Header */}
+      <h1 className="my-20 text-center text-4xl font-bemirs">
+        Experience
+      </h1>
+      
+      {/* Experience Timeline */}
+      <div className="max-w-6xl mx-auto px-4">
         {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
-            <div className="experience-year w-full lg:w-1/4">
-              <p className="mb-2 text-sm text-neutral-400">{experience.year}</p>
+          <div 
+            key={index} 
+            className="mb-16 flex flex-wrap lg:justify-center"
+          >
+            {/* Year Section */}
+            <div className="experience-year w-full lg:w-1/4 mb-6 lg:mb-0">
+              <div className="lg:sticky lg:top-20">
+                <p className="text-lg font-medium text-neutral-300 lg:text-right lg:pr-8">
+                  {experience.year}
+                </p>
+                <div className="hidden lg:block w-1 h-20 bg-gradient-to-b from-cyan-400 to-transparent ml-auto mr-8 mt-4"></div>
+              </div>
             </div>
-            <div className="experience-content w-full max-w-xl lg:w-3/4">
-              <h6 className="mb-2 font-semibold">
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-400">
-                  {experience.company}
-                </span>
-              </h6>
+            
+            {/* Content Section */}
+            <div className="experience-content w-full max-w-3xl lg:w-3/4">
+              <div className="p-6">
+                
+                {/* Role and Company */}
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {experience.role}
+                  </h3>
+                  <p className="text-cyan-400 font-medium text-lg">
+                    {experience.company}
+                  </p>
+                </div>
 
-              <p className="mb-4 text-neutral-400">{experience.description}</p>
-              {experience.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 
-                  text-sm font-medium text-purple-500"
-                >
-                  {tech}
-                </span>
-              ))}
+                {/* Description */}
+                <p className="mb-6 text-neutral-300 leading-relaxed text-base">
+                  {experience.description}
+                </p>
+                
+                {/* Technologies */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-neutral-400 uppercase tracking-wide">
+                    Technologies & Tools
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {experience.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+                                 bg-cyan-400/20 border border-cyan-400/40 text-cyan-300
+                                 hover:bg-cyan-400/30 hover:border-cyan-400/60 transition-colors duration-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}

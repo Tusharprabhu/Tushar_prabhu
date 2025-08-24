@@ -124,7 +124,7 @@ function ProjectItem({ project, index }) {
 
   return (
     <div 
-      className="project-card relative overflow-hidden bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-neutral-700/50 hover:border-emerald-400/30 transition-all duration-500 shadow-xl hover:shadow-emerald-400/10 min-h-24 lg:min-h-32"
+      className="project-card relative overflow-hidden bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-neutral-700/50 hover:border-cyan-400/50 transition-all duration-500 shadow-xl hover:shadow-cyan-400/30 min-h-24 lg:min-h-32"
       ref={itemRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -132,16 +132,16 @@ function ProjectItem({ project, index }) {
     >
       {/* Default Content */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center p-4 lg:p-6 h-full cursor-pointer gap-4">
-        <div className="flex items-center gap-3 lg:gap-6 w-full">
+        <div className="flex items-center gap-3 m-4 lg:gap-6 w-full">
           <div 
-            className="w-16 h-12 sm:w-20 sm:h-16 lg:w-24 lg:h-20 bg-cover bg-center rounded-lg lg:rounded-xl flex-shrink-0"
+            className="w-24 h-18 sm:w-28 sm:h-20 lg:w-32 lg:h-24 bg-cover bg-center rounded-lg lg:rounded-xl flex-shrink-0"
             style={{ backgroundImage: `url(${project.image})` }}
           />
           <div className="flex-1 min-w-0">
-            <h3 className="font-sans font-semibold text-white text-base sm:text-lg lg:text-xl mb-1 lg:mb-2 hover:text-emerald-300 transition-colors duration-300 truncate">
+            <h3 className="font-sans font-semibold text-white text-base sm:text-lg lg:text-xl mb-1 lg:mb-2 hover:text-cyan-300 transition-colors duration-300 truncate">
               {project.title}
             </h3>
-            <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans line-clamp-2 lg:line-clamp-2">
+            <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans">
               {project.description}
             </p>
           </div>
@@ -150,7 +150,7 @@ function ProjectItem({ project, index }) {
           {project.technologies.map((tech, techIndex) => (
             <span 
               key={techIndex} 
-              className="bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 px-2 py-1 rounded-full text-xs font-sans whitespace-nowrap"
+              className="bg-cyan-400/20 border border-cyan-400/40 text-cyan-300 px-2 py-1 rounded-full text-xs font-sans whitespace-nowrap"
             >
               {tech}
             </span>
@@ -160,7 +160,7 @@ function ProjectItem({ project, index }) {
 
       {/* Flowing Marquee Overlay */}
       <div
-        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-emerald-400 translate-y-full"
+        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-cyan-400 translate-y-full"
         ref={marqueeRef}
       >
         <div className="h-full w-[500%] flex" ref={marqueeInnerRef}>

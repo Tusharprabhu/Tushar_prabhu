@@ -207,7 +207,7 @@ export default function App() {
   return (
     <div
       ref={appRef}
-      className="w-full text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900"
+      className="w-full text-neutral-300 antialiased selection:bg-cyan-400 selection:text-blue-900"
     >
       <div className="bg-black">
         <StickyNav />
@@ -216,6 +216,7 @@ export default function App() {
           <Hero />
           <div id="sticky-container" className="relative w-full">
             <About />
+            <Experience />
             <Technologies />
             <Projects />
           </div>

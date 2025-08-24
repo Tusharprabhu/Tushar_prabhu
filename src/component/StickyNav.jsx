@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { VscHome, VscAccount, VscTools, VscCode, VscMail } from "react-icons/vsc";
+import { VscHome, VscAccount, VscBriefcase, VscTools, VscCode, VscMail } from "react-icons/vsc";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +22,8 @@ const StickyNav = () => {
       const scrollPosition = window.scrollY + 100;
       
       const aboutSection = document.querySelector('.about-image')?.closest('div');
-      const techSection = document.querySelector('.tech-container')?.closest('div');
+      const experienceSection = document.getElementById('experience');
+      const techSection = document.getElementById('technologies');
       const projectSection = document.querySelector('.projects-section') || document.querySelector('[class*="project"]');
       const contactSection = document.querySelector('.contact-container');
       
@@ -32,6 +33,8 @@ const StickyNav = () => {
         setActiveSection('projects');
       } else if (techSection && scrollPosition >= techSection.offsetTop) {
         setActiveSection('technologies');
+      } else if (experienceSection && scrollPosition >= experienceSection.offsetTop) {
+        setActiveSection('experience');
       } else if (aboutSection && scrollPosition >= aboutSection.offsetTop) {
         setActiveSection('about');
       } else {
@@ -112,6 +115,8 @@ const StickyNav = () => {
     let element;
     if (targetSection === 'about') {
       element = document.querySelector('.about-image')?.closest('div');
+    } else if (targetSection === 'experience') {
+      element = document.getElementById('experience');
     } else if (targetSection === 'technologies') {
       element = document.getElementById('technologies');
     } else if (targetSection === 'projects') {
@@ -169,14 +174,14 @@ const StickyNav = () => {
         onClick={onClick}
         className={`relative flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-300 shadow-lg mx-1 ${
           isActive 
-            ? 'bg-gradient-to-br from-emerald-500/40 to-emerald-600/30 border-2 border-emerald-400 shadow-emerald-400/50' 
-            : 'bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border-2 border-neutral-600/50 hover:border-emerald-400/60 hover:shadow-emerald-400/20'
+            ? 'bg-gradient-to-br from-cyan-400/30 to-blue-500/20 border-2 border-cyan-400 shadow-cyan-400/60' 
+            : 'bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border-2 border-neutral-600/50 hover:border-cyan-400/70 hover:shadow-cyan-400/40'
         }`}
         tabIndex={0}
         role="button"
       >
         <div className={`flex items-center justify-center text-base ${
-          isActive ? 'text-emerald-300' : 'text-neutral-200 hover:text-emerald-200'
+          isActive ? 'text-cyan-300' : 'text-neutral-200 hover:text-cyan-300'
         }`}>
           {icon}
         </div>
@@ -207,6 +212,12 @@ const StickyNav = () => {
       isActive: activeSection === 'about'
     },
     { 
+      icon: <VscBriefcase size={16} />, 
+      label: 'Experience', 
+      onClick: () => scrollToSection('experience'),
+      isActive: activeSection === 'experience'
+    },
+    { 
       icon: <VscTools size={16} />, 
       label: 'Technologies', 
       onClick: () => scrollToSection('technologies'),
@@ -235,7 +246,7 @@ const StickyNav = () => {
         <div className="absolute -bottom-2 left-0 w-full h-1 bg-neutral-700/50 rounded-full">
           <div
             ref={progressRef}
-            className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full"
+            className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
             style={{ width: '0%' }}
           />
         </div>
