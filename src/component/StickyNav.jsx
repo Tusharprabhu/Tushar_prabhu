@@ -69,7 +69,7 @@ const StickyNav = () => {
       });
     }
 
-    // Initialize dock items with GSAP
+    // Initialize navigation items with GSAP
     itemsRef.current.forEach(item => {
       if (item) {
         gsap.set(item, {
@@ -113,9 +113,9 @@ const StickyNav = () => {
     if (targetSection === 'about') {
       element = document.querySelector('.about-image')?.closest('div');
     } else if (targetSection === 'technologies') {
-      element = document.querySelector('.tech-container')?.closest('div');
+      element = document.getElementById('technologies');
     } else if (targetSection === 'projects') {
-      element = document.querySelector('.projects-section') || document.querySelector('[class*="project"]');
+      element = document.querySelector('[class*="project"]');
     } else if (targetSection === 'contact') {
       element = document.querySelector('.contact-container');
     }
@@ -240,12 +240,12 @@ const StickyNav = () => {
           />
         </div>
         
-        {/* Navigation Dock */}
+        {/* Sticky Navigation */}
         <nav
           ref={navRef}
           className="flex items-center gap-3 rounded-3xl border-2 border-neutral-600/60 bg-gradient-to-r from-black/90 to-neutral-900/80 backdrop-blur-xl px-6 py-3 shadow-2xl shadow-black/60"
           role="toolbar"
-          aria-label="Navigation dock"
+          aria-label="Navigation bar"
         >
           <ul className="flex items-center gap-3">
           {navItems.map((item, index) => (

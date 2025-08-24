@@ -22,13 +22,13 @@ const Project = () => {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.6,
+          duration: 0.4,
           stagger: 0.2,
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".projects-container",
-            start: "top 80%",
-            end: "bottom 20%",
+            start: "top 90%",
+            end: "bottom 10%",
             toggleActions: "play none none reverse",
           }
         }
@@ -40,13 +40,13 @@ const Project = () => {
 
   return (
     <div ref={projectRef} className="border-b border-neutral-900 pb-4 lg:pb-32">
-      <h1 className="my-20 text-center text-4xl font-bemirs">
+      <h1 className="my-10 lg:my-20 text-center text-2xl md:text-3xl lg:text-4xl font-bemirs px-4">
         My
         <span className="text-neutral-500"> Projects</span>
       </h1>
       
-      <div className="projects-container w-full max-w-[1400px] mx-auto py-15 px-12 md:px-8 lg:px-12">
-        <div className="flex flex-col gap-4">
+      <div className="projects-container w-full max-w-[1400px] mx-auto py-8 lg:py-15 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="flex flex-col gap-2 lg:gap-2">
           {PROJECTS.map((project, index) => (
             <ProjectItem 
               key={index} 
@@ -113,51 +113,48 @@ function ProjectItem({ project, index }) {
         className="w-32 h-20 mx-6 rounded-xl bg-cover bg-center flex-shrink-0"
         style={{ backgroundImage: `url(${project.image})` }}
       />
-      <div className="flex flex-wrap gap-2 px-4">
-        {project.technologies.slice(0, 3).map((tech, techIdx) => (
-          <span 
-            key={techIdx}
-            className="bg-neutral-800 text-white px-2 py-1 rounded-full text-xs font-sans"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
     </React.Fragment>
   ));
 
+  const handleClick = () => {
+    if (project.githubLink) {
+      window.open(project.githubLink, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <div 
-      className="project-card relative overflow-hidden bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm rounded-2xl border border-neutral-700/50 hover:border-emerald-400/30 transition-all duration-500 shadow-xl hover:shadow-emerald-400/10 min-h-32"
+      className="project-card relative overflow-hidden bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-neutral-700/50 hover:border-emerald-400/30 transition-all duration-500 shadow-xl hover:shadow-emerald-400/10 min-h-24 lg:min-h-32"
       ref={itemRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       {/* Default Content */}
-      <div className="flex items-center p-6 h-full cursor-pointer">
-        <div className="flex items-center gap-6 w-full">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center p-4 lg:p-6 h-full cursor-pointer gap-4">
+        <div className="flex items-center gap-3 lg:gap-6 w-full">
           <div 
-            className="w-24 h-20 bg-cover bg-center rounded-xl flex-shrink-0"
+            className="w-16 h-12 sm:w-20 sm:h-16 lg:w-24 lg:h-20 bg-cover bg-center rounded-lg lg:rounded-xl flex-shrink-0"
             style={{ backgroundImage: `url(${project.image})` }}
           />
-          <div className="flex-1">
-            <h3 className="font-sans font-semibold text-white text-xl mb-2 hover:text-emerald-300 transition-colors duration-300">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-sans font-semibold text-white text-base sm:text-lg lg:text-xl mb-1 lg:mb-2 hover:text-emerald-300 transition-colors duration-300 truncate">
               {project.title}
             </h3>
-            <p className="text-neutral-300 text-sm leading-relaxed font-sans line-clamp-2">
+            <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans line-clamp-2 lg:line-clamp-2">
               {project.description}
             </p>
           </div>
-          <div className="flex flex-wrap gap-2 max-w-xs">
-            {project.technologies.map((tech, techIndex) => (
-              <span 
-                key={techIndex} 
-                className="bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 px-2 py-1 rounded-full text-xs font-sans"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        </div>
+        <div className="flex flex-wrap gap-1 lg:gap-2 w-full sm:max-w-xs lg:max-w-xs">
+          {project.technologies.map((tech, techIndex) => (
+            <span 
+              key={techIndex} 
+              className="bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 px-2 py-1 rounded-full text-xs font-sans whitespace-nowrap"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -166,7 +163,7 @@ function ProjectItem({ project, index }) {
         className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-emerald-400 translate-y-full"
         ref={marqueeRef}
       >
-        <div className="h-full w-[300%] flex" ref={marqueeInnerRef}>
+        <div className="h-full w-[500%] flex" ref={marqueeInnerRef}>
           <div className="flex items-center relative h-full w-full will-change-transform animate-marquee">
             {repeatedMarqueeContent}
           </div>

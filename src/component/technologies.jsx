@@ -138,7 +138,7 @@ const IconScrollVelocity = ({ baseVelocity = 100 }) => {
 
 const technologies = () => {
   return (
-    <div className="border-b border-neutral-900 pb-24">
+    <div id="technologies" className="border-b border-neutral-900 pb-24">
       <h1 className="m-10 text-center text-4xl font-bemirs">Technologies</h1>
       
       {/* Scroll Velocity Effect with Icons */}

@@ -19,32 +19,44 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
-    title: "Brain Tumor Classification & Treatment Recommendation",
+    title: "Brain Tumor Classification and Personalized Treatment Recommendation",
     image: project1,
     description:
-      "Designed an end-to-end bioinformatics pipeline leveraging DNABERT for DNA sequence analysis and SmileBERT for AI-driven molecular generation. Built interactive interface with real-time visual outputs for personalized treatment recommendations.",
+      "Designed an end-to-end bioinformatics pipeline for brain tumor classification and personalized treatment recommendation by leveraging DNABERT for DNA sequence analysis and SmileBERT for AI-driven molecular generation; validated sequences, analyzed feature distributions, and deployed an interactive interface with real-time visual outputs.",
     technologies: ["Python", "PyTorch", "HuggingFace", "RDKit", "DNABERT", "SmileBERT"],
+    githubLink: "https://github.com/Tusharprabhu/BraintumorLLMmedication"
   },
   {
-    title: "Hardware Trojan Detection System",
+    title: "Conversational AI Robot with Real-Time Lip-Sync on Raspberry Pi 5",
     image: project2,
     description:
-      "Built a hardware Trojan detection system for Verilog ALU designs using fine-tuned GPT-2 transformer model. Computes code perplexity scores and flags anomalies exceeding 20% threshold as potential Trojans.",
-    technologies: ["Python", "PyTorch", "GPT-2", "Verilog", "Matplotlib"],
+      "Built a fully interactive humanoid robot using Gemini 1.5 Flash LLM on Raspberry Pi 5 with a Python pipeline for speech recognition, TTS, and real-time lip-sync by mapping text to phonemes, visemes, and servo angles. Designed and 3D-printed a robotic head with a custom silicone expression mesh, actuated via PCA9685 for naturalistic facial animation.",
+    technologies: ["Python", "Raspberry Pi 5", "Gemini LLM", "TTS", "PCA9685", "3D Printing", "Speech Recognition"],
+    githubLink: "https://github.com/Tusharprabhu/hir"
   },
   {
-    title: "2D Floorplan to 3D and AR Visualization",
+    title: "2D Floorplan to 3D and AR Visualisation",
     image: project3,
     description:
-      "Built end-to-end 2D-to-3D conversion pipeline using OpenCV for generating 3D models from floorplan images. Extended functionality to AR using Unity AR Foundation for real-world placement and interaction, with GAN models for 2D floorplan generation.",
-    technologies: ["Python", "OpenCV", "Unity", "AR Foundation", "GANs", "Swagger API"],
+      "Built an end-to-end 2D-to-3D conversion pipeline using the python openCV library to generate 3D models from floorplan images; Image processing was done on image and Swagger API for real-time image-to-model conversion, and extended functionality to AR using Unity AR Foundation for real-world placement, scaling, and interaction, further extended to use GANS models to generate 2D floorplan design.",
+    technologies: ["Python", "OpenCV", "Unity", "AR Foundation", "GANs", "Swagger API", "3D Modeling"],
+    githubLink: "https://github.com/Tusharprabhu/floor_plan_to_blender_model"
   },
   {
-    title: "Systolic Array Architectures on Cadence Virtuoso",
+    title: "7 Variants of Systolic Array Architectures on Cadence Virtuoso",
     image: project4,
     description:
-      "Implemented 7 variants of systolic array architectures in SystemC and simulated on Cadence Virtuoso. Conducted detailed DC and parametric analysis for timing validation, pipeline balancing, and functional verification of convolution operations.",
-    technologies: ["SystemC", "Cadence Virtuoso", "Verilog", "ModelSim", "GTKWave"],
+      "Implemented 7 variants of systolic array architectures in SystemC and simulated their behavior on Cadence Virtuoso; conducted detailed DC and parametric analysis for timing validation, pipeline balancing, and functional verification of convolution operations across multiple design topologies.",
+    technologies: ["SystemC", "Cadence Virtuoso", "Verilog", "ModelSim", "GTKWave", "DC Analysis"],
+    githubLink: "https://github.com/Tusharprabhu/systolic_array_convolution"
+  },
+  {
+    title: "Hardware Trojan Detection System for Verilog using GPT2 Transformer",
+    image: project1,
+    description:
+      "Built a hardware Trojan detection system for Verilog ALU designs using the fine-tuned-codegen-2B-Verilog transformer model (GPT-2, multi-query attention) to compute and compare code perplexity scores. The tool flags anomalies exceeding a 20% threshold as potential Trojans with help of pytorch and plotting it.",
+    technologies: ["Python", "PyTorch", "GPT-2", "Verilog", "Matplotlib", "CodeGen", "Multi-Query Attention"],
+    githubLink: "https://github.com/Tusharprabhu/HardwareTrojanDetection"
   },
 ];
 
