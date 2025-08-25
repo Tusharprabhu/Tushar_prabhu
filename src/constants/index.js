@@ -50,8 +50,24 @@ export const EXPERIENCES = [
 // ================================================================
 export const PROJECTS = [
   {
-    title: "Brain Tumor Classification and Personalized Treatment Recommendation",
+    title: "FPGA-Based CNN Hardware Accelerator for MNIST Digit Classification on AMD Kria KR260",
     image: project1,
+    description:
+      "Designed and implemented a hardware accelerator on AMD Kria KR260 FPGA using Verilog and Vivado for efficient MNIST digit classification, achieving ~98% accuracy with parallel MAC units for convolution, ReLU activation, max pooling, and AXI-Stream interface for PS-PL communication; optimized latency and power through pipelining, BRAM memory management, and DSP slice utilization.",
+    technologies: [
+      "Verilog", 
+      "Vivado", 
+      "FPGA", 
+      "AMD Kria KR260", 
+      "CNN", 
+      "AXI-Stream",
+    ],
+    githubLink: "https://github.com/Tusharprabhu/CNN_Image_classification-on-K26"
+  },
+
+  {
+    title: "Brain Tumor Classification and Personalized Treatment Recommendation",
+    image: project2,
     description:
       "Designed an end-to-end bioinformatics pipeline for brain tumor classification and personalized treatment recommendation by leveraging DNABERT for DNA sequence analysis and SmileBERT for AI-driven molecular generation; validated sequences, analyzed feature distributions, and deployed an interactive interface with real-time visual outputs.",
     technologies: [
@@ -67,7 +83,7 @@ export const PROJECTS = [
 
   {
     title: "Conversational AI Robot with Real-Time Lip-Sync on Raspberry Pi 5",
-    image: project2,
+    image: project3,
     description:
       "Built a fully interactive humanoid robot using Gemini 1.5 Flash LLM on Raspberry Pi 5 with a Python pipeline for speech recognition, TTS, and real-time lip-sync by mapping text to phonemes, visemes, and servo angles. Designed and 3D-printed a robotic head with a custom silicone expression mesh, actuated via PCA9685 for naturalistic facial animation.",
     technologies: [
@@ -84,7 +100,7 @@ export const PROJECTS = [
 
   {
     title: "2D Floorplan to 3D and AR Visualisation",
-    image: project3,
+    image: project4,
     description:
       "Built an end-to-end 2D-to-3D conversion pipeline using the python openCV library to generate 3D models from floorplan images; Image processing was done on image and Swagger API for real-time image-to-model conversion, and extended functionality to AR using Unity AR Foundation for real-world placement, scaling, and interaction, further extended to use GANS models to generate 2D floorplan design.",
     technologies: [
@@ -101,7 +117,7 @@ export const PROJECTS = [
 
   {
     title: "7 Variants of Systolic Array Architectures on Cadence Virtuoso",
-    image: project4,
+    image: project1,
     description:
       "Implemented 7 variants of systolic array architectures in SystemC and simulated their behavior on Cadence Virtuoso; conducted detailed DC and parametric analysis for timing validation, pipeline balancing, and functional verification of convolution operations across multiple design topologies.",
     technologies: [
@@ -117,7 +133,7 @@ export const PROJECTS = [
 
   {
     title: "Hardware Trojan Detection System for Verilog using GPT2 Transformer",
-    image: project1,
+    image: project2,
     description:
       "Built a hardware Trojan detection system for Verilog ALU designs using the fine-tuned-codegen-2B-Verilog transformer model (GPT-2, multi-query attention) to compute and compare code perplexity scores. The tool flags anomalies exceeding a 20% threshold as potential Trojans with help of pytorch and plotting it.",
     technologies: [
@@ -130,6 +146,38 @@ export const PROJECTS = [
       "Multi-Query Attention"
     ],
     githubLink: "https://github.com/Tusharprabhu/HardwareTrojanDetection"
+  },
+
+  {
+    title: "Automated Iris & Pupil Detection in Eye Images",
+    image: project3,
+    description:
+      "Short script for automated iris and pupil detection using OpenCV (Haar cascades, CLAHE, HoughCircles) with Matplotlib visualization; robust to missing detections and suitable for frontal eye images.",
+    technologies: [
+      "Python",
+      "OpenCV",
+      "NumPy",
+      "Matplotlib",
+      "Image Processing",
+      "Haar Cascades",
+      "CLAHE"
+    ],
+    githubLink: "https://github.com/Tusharprabhu/opencv"
+  },
+
+  {
+    title: "Song Recommendation System using KNN",
+    image: project4,
+    description:
+      "Simple KNN-based song recommender using danceability and energy features; includes preprocessing (standardization) and a notebook for interactive recommendations.",
+    technologies: [
+      "Python",
+      "pandas",
+      "scikit-learn",
+      "KNN",
+      "Data Preprocessing"
+    ],
+    githubLink: "https://github.com/Tusharprabhu/song-recommender"
   },
 ];
 
