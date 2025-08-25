@@ -39,7 +39,7 @@ const Project = () => {
   }, []);
 
   return (
-    <div ref={projectRef} className="border-b border-neutral-900 pb-4 lg:pb-32">
+    <div id="projects" ref={projectRef} className="border-b border-neutral-900 pb-4 lg:pb-32">
       <h1 className="my-10 lg:my-20 text-center text-2xl md:text-3xl lg:text-4xl font-bemirs px-4">
         My
         <span className="text-neutral-500"> Projects</span>

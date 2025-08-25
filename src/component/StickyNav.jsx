@@ -19,13 +19,13 @@ const StickyNav = () => {
       setShowNav(window.pageYOffset > homeViewportHeight * 0.8);
 
       // Determine active section based on scroll position
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY +100;
       
-      const aboutSection = document.querySelector('.about-image')?.closest('div');
+      const aboutSection = document.getElementById('about');
       const experienceSection = document.getElementById('experience');
       const techSection = document.getElementById('technologies');
-      const projectSection = document.querySelector('.projects-section') || document.querySelector('[class*="project"]');
-      const contactSection = document.querySelector('.contact-container');
+      const projectSection = document.getElementById('projects');
+      const contactSection = document.getElementById('contact');
       
       if (contactSection && scrollPosition >= contactSection.offsetTop) {
         setActiveSection('contact');
@@ -108,30 +108,26 @@ const StickyNav = () => {
 
   const scrollToSection = (targetSection) => {
     if (targetSection === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: 0 },
+        ease: "back.out(1.7)"
+      });
       return;
     }
 
-    let element;
-    if (targetSection === 'about') {
-      element = document.querySelector('.about-image')?.closest('div');
-    } else if (targetSection === 'experience') {
-      element = document.getElementById('experience');
-    } else if (targetSection === 'technologies') {
-      element = document.getElementById('technologies');
-    } else if (targetSection === 'projects') {
-      element = document.querySelector('[class*="project"]');
-    } else if (targetSection === 'contact') {
-      element = document.querySelector('.contact-container');
-    }
+    const element = document.getElementById(targetSection);
 
     if (element) {
       const navHeight = 80;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navHeight;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      
+      // GSAP scroll with bounce effect
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: offsetPosition },
+        ease: "back.out(1.5)"
       });
     }
   };
