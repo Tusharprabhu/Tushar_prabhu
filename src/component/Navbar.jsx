@@ -6,11 +6,16 @@ import { FaFacebook } from "react-icons/fa";
 import Navtitle from "../assets/navtitle.png";
 
 const navbar = () => {
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  };
+
   return (
     <>
         <div className="fixed top-6 left-6 z-50">
           <div className="bg-black/80 backdrop-blur-md rounded-2xl p-3 border border-neutral-700/50 shadow-2xl">
-            <a href="https://tusharprabhu.github.io/Tushar_prabhu/" className="block">
+            <a href="#" onClick={handleLogoClick} className="block cursor-pointer">
           <img src={Navtitle} className="h-10" alt="title" />
             </a>
           </div>
