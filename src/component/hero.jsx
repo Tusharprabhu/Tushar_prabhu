@@ -97,19 +97,17 @@ const Hero = () => {
         {/* Parallax Tushar image */}
         <div
           ref={imageRef}
-          className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 z-[1] bg-center bg-no-repeat"
+          className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 z-[1] bg-center bg-no-repeat bg-[length:150%] sm:bg-[length:90%] md:bg-[length:40%]"
           style={{
             backgroundImage: `url(${profilePic})`,
-            backgroundSize: '40%',
           }}
         />
 
         {/* Brush overlay */}
         <div
-          className="absolute w-full h-full pointer-events-none z-10 bg-center bg-no-repeat"
+          className="absolute w-full h-full pointer-events-none z-10 bg-center bg-no-repeat bg-[length:156%] sm:bg-[length:96%] md:bg-[length:46%]"
           style={{
             backgroundImage: `url(${brush})`,
-            backgroundSize: '46%',
           }}
         />
 
