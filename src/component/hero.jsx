@@ -129,7 +129,7 @@ const Hero = () => {
 
           <div className="mt-8">
             <span className="text-xl md:text-2xl tracking-tight text-white font-extralight block mb-6">
-              Electronics and Communication Engineer
+              {/* Electronics and Communication Engineer */}
             </span>
           </div>
         </div>
