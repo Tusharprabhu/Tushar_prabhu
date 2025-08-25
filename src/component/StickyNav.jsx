@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { VscHome, VscAccount, VscBriefcase, VscTools, VscCode, VscMail } from "react-icons/vsc";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const StickyNav = () => {
   const [activeSection, setActiveSection] = useState('home');
