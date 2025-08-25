@@ -124,38 +124,50 @@ function ProjectItem({ project, index }) {
 
   return (
     <div 
-      className="project-card relative overflow-hidden bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-neutral-700/50 hover:border-cyan-400/50 transition-all duration-500 shadow-xl hover:shadow-cyan-400/30 min-h-24 lg:min-h-32"
+      className="project-card relative overflow-hidden bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-neutral-700/50 hover:border-cyan-400/50 transition-all duration-500 min-h-12 sm:min-h-24 lg:min-h-32"
       ref={itemRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
       {/* Default Content */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center p-4 lg:p-6 h-full cursor-pointer gap-4">
-        <div className="flex items-center gap-3 m-4 lg:gap-6 w-full">
-          <div 
-            className="w-24 h-18 sm:w-28 sm:h-20 lg:w-32 lg:h-24 bg-cover bg-center rounded-lg lg:rounded-xl flex-shrink-0"
-            style={{ backgroundImage: `url(${project.image})` }}
-          />
-          <div className="flex-1 min-w-0">
-            <h3 className="font-sans font-semibold text-white text-base sm:text-lg lg:text-xl mb-1 lg:mb-2 hover:text-cyan-300 transition-colors duration-300 truncate">
-              {project.title}
-            </h3>
-            <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans">
-              {project.description}
-            </p>
+      <div className="h-full cursor-pointer">
+        
+        {/* Mobile Layout - Title Only */}
+        <div className="block sm:hidden p-3">
+          <h3 className="font-sans font-semibold text-white text-base text-center hover:text-cyan-300 transition-colors duration-300">
+            {project.title}
+          </h3>
+        </div>
+
+        {/* Desktop/Tablet Layout - Full Content */}
+        <div className="hidden sm:flex flex-col sm:flex-row items-start sm:items-center p-1 lg:p-4 gap-4">
+          <div className="flex items-center gap-3 m-4 lg:gap-6 w-full">
+            <div 
+              className="w-24 h-18 sm:w-28 sm:h-20 lg:w-32 lg:h-24 bg-cover bg-center rounded-lg lg:rounded-xl flex-shrink-0"
+              style={{ backgroundImage: `url(${project.image})` }}
+            />
+            <div className="flex-1 min-w-0">
+              <h3 className="font-sans font-semibold text-white text-base sm:text-lg lg:text-xl mb-1 lg:mb-2 hover:text-cyan-300 transition-colors duration-300 truncate">
+                {project.title}
+              </h3>
+              <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans">
+                {project.description}
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-1 lg:gap-2 w-full sm:max-w-xs lg:max-w-xs">
+            {project.technologies.map((tech, techIndex) => (
+              <span 
+                key={techIndex} 
+                className="bg-cyan-400/20 border border-cyan-400/40 text-cyan-300 px-2 py-1 rounded-full text-xs font-sans whitespace-nowrap"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
-        <div className="flex flex-wrap gap-1 lg:gap-2 w-full sm:max-w-xs lg:max-w-xs">
-          {project.technologies.map((tech, techIndex) => (
-            <span 
-              key={techIndex} 
-              className="bg-cyan-400/20 border border-cyan-400/40 text-cyan-300 px-2 py-1 rounded-full text-xs font-sans whitespace-nowrap"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        
       </div>
 
       {/* Flowing Marquee Overlay */}
