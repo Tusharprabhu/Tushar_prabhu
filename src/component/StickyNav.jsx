@@ -171,8 +171,8 @@ const StickyNav = () => {
         onClick={onClick}
         className={`relative flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-300 shadow-lg mx-1 ${
           isActive 
-            ? 'bg-gradient-to-br from-cyan-400/30 to-blue-500/20 border-2 border-cyan-400 shadow-cyan-400/60' 
-            : 'bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border-2 border-neutral-600/50 hover:border-cyan-400/70 hover:shadow-cyan-400/40'
+            ? 'bg-cyan-400/20 border border-cyan-400/40 shadow-cyan-400/50 backdrop-blur-sm ring-1 ring-inset ring-cyan-300/20' 
+            : 'bg-white/5 border border-white/10 hover:border-cyan-400/30 hover:shadow-cyan-400/30 backdrop-blur-sm hover:bg-white/10 ring-1 ring-inset ring-white/5'
         }`}
         tabIndex={0}
         role="button"
@@ -186,8 +186,7 @@ const StickyNav = () => {
         {/* Tooltip */}
         <div
           ref={tooltipRef}
-          className="absolute -bottom-12 left-1/2 w-fit whitespace-nowrap rounded-xl border border-neutral-500/60 bg-gradient-to-r from-black/95 to-neutral-900/90 backdrop-blur-sm px-4 py-2 text-sm text-neutral-100 font-medium pointer-events-none z-10 opacity-0 shadow-lg"
-          style={{ transform: "translateX(-50%)" }}
+          className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-fit whitespace-nowrap rounded-xl border border-white/20 bg-black/30 backdrop-blur-md px-4 py-2 text-sm text-white font-medium pointer-events-none z-10 opacity-0 shadow-lg ring-1 ring-inset ring-white/10"
         >
           {label}
         </div>
@@ -240,18 +239,17 @@ const StickyNav = () => {
     }`}>
       <div className="relative">
         {/* Progress Bar */}
-        <div className="absolute -bottom-2 left-0 w-full h-1 bg-neutral-700/50 rounded-full">
+        <div className="absolute -bottom-2 left-0 w-full h-1 bg-white/10 rounded-full backdrop-blur-sm">
           <div
             ref={progressRef}
-            className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
-            style={{ width: '0%' }}
+            className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-sm w-0"
           />
         </div>
         
         {/* Sticky Navigation */}
         <nav
           ref={navRef}
-          className="flex items-center gap-3 rounded-3xl border-2 border-neutral-600/60 bg-gradient-to-r from-black/90 to-neutral-900/80 backdrop-blur-xl px-6 py-3 shadow-2xl shadow-black/60"
+          className="flex items-center gap-3 rounded-3xl border border-white/10 bg-black/20 backdrop-blur-md px-6 py-3 shadow-2xl shadow-black/40 ring-1 ring-inset ring-white/5"
           role="toolbar"
           aria-label="Navigation bar"
         >
