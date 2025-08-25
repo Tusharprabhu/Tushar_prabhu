@@ -17,10 +17,10 @@ const StickyNav = () => {
     const handleScroll = () => {
       // Show nav when scrolled past home page viewport
       const homeViewportHeight = window.innerHeight;
-      setShowNav(window.pageYOffset > homeViewportHeight * 0.8);
+      setShowNav(window.pageYOffset > homeViewportHeight * 0.65);
 
       // Determine active section based on scroll position
-      const scrollPosition = window.scrollY +100;
+      const scrollPosition = window.scrollY - 700;
       
       const aboutSection = document.getElementById('about');
       const experienceSection = document.getElementById('experience');
@@ -186,7 +186,7 @@ const StickyNav = () => {
         {/* Tooltip */}
         <div
           ref={tooltipRef}
-          className="absolute -top-10 left-1/2 w-fit whitespace-nowrap rounded-xl border border-neutral-500/60 bg-gradient-to-r from-black/95 to-neutral-900/90 backdrop-blur-sm px-4 py-2 text-sm text-neutral-100 font-medium pointer-events-none z-10 opacity-0 shadow-lg"
+          className="absolute -bottom-12 left-1/2 w-fit whitespace-nowrap rounded-xl border border-neutral-500/60 bg-gradient-to-r from-black/95 to-neutral-900/90 backdrop-blur-sm px-4 py-2 text-sm text-neutral-100 font-medium pointer-events-none z-10 opacity-0 shadow-lg"
           style={{ transform: "translateX(-50%)" }}
         >
           {label}
