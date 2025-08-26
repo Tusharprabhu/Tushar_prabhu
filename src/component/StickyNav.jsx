@@ -19,6 +19,18 @@ const StickyNav = () => {
       const homeViewportHeight = window.innerHeight;
       setShowNav(window.pageYOffset > homeViewportHeight * 0.65);
 
+      // Calculate scroll progress
+      const scrollTop = window.pageYOffset;
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const scrollProgress = scrollTop / (documentHeight - windowHeight);
+
+      // If we're at 90% or more, activate contact
+      if (scrollProgress >= 0.9) {
+        setActiveSection('contact');
+        return;
+      }
+
       // Determine active section based on scroll position
       const scrollPosition = window.scrollY - 700;
       
@@ -113,6 +125,20 @@ const StickyNav = () => {
         duration: 1.2,
         scrollTo: { y: 0 },
         ease: "back.out(1.7)"
+      });
+      return;
+    }
+
+    if (targetSection === 'contact') {
+      // Scroll to the very end of the page
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const maxScroll = documentHeight - windowHeight;
+      
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: maxScroll },
+        ease: "back.out(1.5)"
       });
       return;
     }
