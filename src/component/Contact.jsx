@@ -76,7 +76,7 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-black">
+              <span className="p-3 text-cyan-400 rounded-full bg-blue-100/80 dark:bg-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

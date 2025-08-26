@@ -169,10 +169,10 @@ const StickyNav = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
-        className={`relative flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-300 shadow-lg mx-1 ${
+        className={`relative flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-300 mx-1 ${
           isActive 
-            ? 'bg-cyan-400/20 border border-cyan-400/40 shadow-cyan-400/50 backdrop-blur-sm ring-1 ring-inset ring-cyan-300/20' 
-            : 'bg-white/5 border border-white/10 hover:border-cyan-400/30 hover:shadow-cyan-400/30 backdrop-blur-sm hover:bg-white/10 ring-1 ring-inset ring-white/5'
+            ? 'bg-cyan-400/20 border border-cyan-400/40 backdrop-blur-sm ring-1 ring-inset ring-cyan-300/20 shadow-[0_0_10px_rgba(34,211,238,0.5),0_0_20px_rgba(34,211,238,0.3),0_0_30px_rgba(34,211,238,0.1)]' 
+            : 'bg-white/5 border border-white/10 hover:border-cyan-400/30 backdrop-blur-sm hover:bg-white/10 ring-1 ring-inset ring-white/5 hover:shadow-[0_0_8px_rgba(34,211,238,0.4),0_0_16px_rgba(34,211,238,0.2)]'
         }`}
         tabIndex={0}
         role="button"
