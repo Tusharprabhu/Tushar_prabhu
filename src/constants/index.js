@@ -177,7 +177,7 @@ export const PROJECTS = [
       "KNN",
       "Data Preprocessing"
     ],
-    githubLink: "https://github.com/Tusharprabhu/song-recommender"
+    githubLink: "https://github.com/Tusharprabhu/Song_recommendationKNN"
   },
 ];
 
