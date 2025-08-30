@@ -28,9 +28,9 @@ Oh, and I'm also a competitive speed skater with some national-level wins under 
 export const EXPERIENCES = [
   {
     year: "May 2025 - Present",
-    role: "Robotics Developer & Web Developer",
-    company: "IEEE RAS Club, PES University",
-    description: `Developed an interactive humanoid robot with real-time lip-sync using Gemini 1.5 Flash LLM on Raspberry Pi 5, integrating speech recognition, TTS, and servo-actuated facial animation. Designed and 3D-printed a robotic head with a custom silicone expression mesh for naturalistic movements. Additionally contributed to web development projects and technical implementations for club initiatives.`,
+    role: "Intern — Humanoid Robotic Head & Facial Expression Skin Development",
+    company: "IEEE RAS, PES University",
+    description: `Pursuing an internship focused on developing an interactive humanoid robotic head with real-time lip-sync using Gemini 1.5 Flash LLM on Raspberry Pi 5. Integrated speech recognition, TTS, and servo-actuated facial animation, and designed & 3D-printed a custom silicone facial expression skin for naturalistic movements. Also contributed to web development and technical implementations for club initiatives.`,
     technologies: [
       "Python", 
       "Raspberry Pi 5", 
@@ -82,7 +82,7 @@ export const PROJECTS = [
   },
 
   {
-    title: "Conversational AI Robot with Real-Time Lip-Sync on Raspberry Pi 5",
+    title: "Conversational AI Robot with Real-Time Lip-Sync on RPi 5",
     image: project3,
     description:
       "Built a fully interactive humanoid robot using Gemini 1.5 Flash LLM on Raspberry Pi 5 with a Python pipeline for speech recognition, TTS, and real-time lip-sync by mapping text to phonemes, visemes, and servo angles. Designed and 3D-printed a robotic head with a custom silicone expression mesh, actuated via PCA9685 for naturalistic facial animation.",

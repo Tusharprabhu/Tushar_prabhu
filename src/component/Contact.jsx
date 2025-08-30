@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedSignature from "./signature.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,6 +40,9 @@ const Contact = () => {
       <h1 className="mt-10 text-center text-4xl font-bemirs">Contact me</h1>
       <section className="bg-black ">
         <div className="container px-6 py-12 mx-auto">
+          <div className="flex justify-center items-center mb-8">
+            <AnimatedSignature />
+          </div>
           <div className="text-center">
             <h1 className=" text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">
               Get in touch
@@ -71,7 +75,7 @@ const Contact = () => {
                 This is my mail.
               </p>
               <p className="mt-2 text-cyan-400 dark:text-cyan-300">
-                shutuptushar@gmail.com
+                tusharpes2004@gmail.com
               </p>
             </div>
 
@@ -127,7 +131,7 @@ const Contact = () => {
               <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
                 Phone
               </h2>
-              <p className="mt-2 text-gray-500 dark:text-gray-400">DON'T please.</p>
+              <p className="mt-2 text-gray-500 dark:text-gray-400">this is my phone number.</p>
               <p className="mt-2 text-cyan-400 dark:text-cyan-300">
                 +91 1514334489
               </p>
