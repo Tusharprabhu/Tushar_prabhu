@@ -71,9 +71,6 @@ const Contact = () => {
               <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
                 Email
               </h2>
-              <p className="mt-2 text-gray-500 dark:text-gray-400">
-                This is my mail.
-              </p>
               <p className="mt-2 text-cyan-400 dark:text-cyan-300">
                 tusharpes2004@gmail.com
               </p>
@@ -105,7 +102,7 @@ const Contact = () => {
               <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
                 Address
               </h2>
-              <p className="mt-2 text-gray-500 dark:text-gray-400">Home town.</p>
+              <p className="mt-2 text-gray-500 dark:text-gray-400">Home town</p>
               <p className="mt-2 text-cyan-400 dark:text-cyan-300">
                 Belgaum Karnataka India 590003
               </p>
