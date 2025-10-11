@@ -25,6 +25,18 @@ const navbar = () => {
         <div className="bg-black/80 backdrop-blur-md rounded-2xl px-6 py-3 border border-neutral-700/50 shadow-2xl">
           <div className="flex items-center gap-5 text-xl">
             <a 
+              href="https://github.com/Tusharprabhu" 
+              className="text-white hover:text-teal-400 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-slate-400/10"
+            >
+              <FaGithub />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/tushar-prabhuu/" 
+              className="text-white hover:text-blue-300 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-blue-300/10"
+            >
+              <FaLinkedin />
+            </a>
+            <a 
               href="https://www.facebook.com/tushar.prabhu.359" 
               className="text-white hover:text-blue-600 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-blue-600/10"
             >
@@ -35,18 +47,6 @@ const navbar = () => {
               className="text-white hover:text-pink-600 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-pink-600/10"
             >
               <FaInstagram />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/tushar-prabhuu/" 
-              className="text-white hover:text-blue-300 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-blue-300/10"
-            >
-              <FaLinkedin />
-            </a>
-            <a 
-              href="https://github.com/Tusharprabhu" 
-              className="text-white hover:text-slate-400 hover:scale-110 transition-all duration-300 p-2 rounded-xl hover:bg-slate-400/10"
-            >
-              <FaGithub />
             </a>
           </div>
         </div>

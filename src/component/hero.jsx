@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import profilePic from "../assets/Tusharimage.png";
+import profilePic from "../assets/profile.png";
 import brush from "../assets/brushbg.png";
 import { gsap } from "gsap";
 
@@ -42,6 +42,9 @@ const Hero = () => {
     const container = containerRef.current;
     const image = imageRef.current;
 
+    // Set initial grayscale state
+    gsap.set(image, { filter: 'grayscale(100%)' });
+
     function updateTransform() {
       const x = image.style.getPropertyValue('--parallax-x') || '0px';
       const y = image.style.getPropertyValue('--parallax-y') || '0px';
@@ -63,10 +66,36 @@ const Hero = () => {
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
       parallaxTo((x - 0.5) * -40, (y - 0.5) * -40, 0.5, 'power3.out');
+      
+      // Check if mouse is in the center 50% area (25% to 75% on both axes)
+      const isInCenterArea = (x >= 0.25 && x <= 0.75) && (y >= 0.25 && y <= 0.75);
+      
+      if (isInCenterArea) {
+        // Add color effect when hovering in center area
+        gsap.to(image, {
+          filter: 'grayscale(0%)',
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+      } else {
+        // Return to black and white when outside center area
+        gsap.to(image, {
+          filter: 'grayscale(100%)',
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+      }
     };
 
     const handleMouseLeave = () => {
       parallaxTo(0, 0, 0.6, 'power2.out');
+      
+      // Return to black and white when not hovering
+      gsap.to(image, {
+        filter: 'grayscale(100%)',
+        duration: 0.5,
+        ease: 'power2.out'
+      });
     };
 
     container.addEventListener('mousemove', handleMouseMove);
