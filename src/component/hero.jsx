@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import profilePic from "../assets/Tusharimage.png";
+import profilePic from "../assets/Tusharprofile.png";
 import brush from "../assets/brushbg.png";
 import { gsap } from "gsap";
 
@@ -7,6 +7,7 @@ const Hero = () => {
   const glitchRef = useRef(null);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
+  const isColorRef = useRef(false);
 
   useEffect(() => {
     gsap.set('.glitch', { opacity: 1 });
@@ -42,6 +43,9 @@ const Hero = () => {
     const container = containerRef.current;
     const image = imageRef.current;
 
+    // start greyscale
+    gsap.set(image, { filter: "grayscale(100%)" });
+
     function updateTransform() {
       const x = image.style.getPropertyValue('--parallax-x') || '0px';
       const y = image.style.getPropertyValue('--parallax-y') || '0px';
@@ -60,13 +64,27 @@ const Hero = () => {
 
     const handleMouseMove = (e) => {
       const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
+      const x = (e.clientX - rect.left) / rect.width;   // 0..1
+      const y = (e.clientY - rect.top) / rect.height;    // 0..1
+
       parallaxTo((x - 0.5) * -40, (y - 0.5) * -40, 0.5, 'power3.out');
+
+      // Turn to color only when cursor is within the central 40% area
+      const inside40 = Math.abs(x - 0.5) <= 0.2 && Math.abs(y - 0.5) <= 0.2;
+
+      if (inside40 && !isColorRef.current) {
+        isColorRef.current = true;
+        gsap.to(image, { filter: "grayscale(0%)", duration: 0.4, ease: "power2.out" });
+      } else if (!inside40 && isColorRef.current) {
+        isColorRef.current = false;
+        gsap.to(image, { filter: "grayscale(100%)", duration: 0.4, ease: "power2.out" });
+      }
     };
 
     const handleMouseLeave = () => {
       parallaxTo(0, 0, 0.6, 'power2.out');
+      isColorRef.current = false;
+      gsap.to(image, { filter: "grayscale(100%)", duration: 0.4, ease: "power2.out" });
     };
 
     container.addEventListener('mousemove', handleMouseMove);
@@ -82,12 +100,8 @@ const Hero = () => {
     <div className="relative mx-auto w-full h-screen min-h-[20vh] overflow-hidden -mt-16">
       <style dangerouslySetInnerHTML={{
         __html: `
-          .glitch.top {
-            clip-path: inset(0 0 50% 0);
-          }
-          .glitch.bottom {
-            clip-path: inset(50% 0 0 0);
-          }
+          .glitch.top { clip-path: inset(0 0 50% 0); }
+          .glitch.bottom { clip-path: inset(50% 0 0 0); }
         `
       }} />
       <div
@@ -100,6 +114,7 @@ const Hero = () => {
           className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 z-[1] bg-center bg-no-repeat bg-[length:150%] sm:bg-[length:90%] md:bg-[length:40%]"
           style={{
             backgroundImage: `url(${profilePic})`,
+            filter: "grayscale(100%)" // default grey
           }}
         />
 

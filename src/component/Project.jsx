@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from "react";
 import { PROJECTS } from "../constants";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Project = () => {
+  const navigate = useNavigate();
   const projectRef = useRef(null);
 
   useEffect(() => {
@@ -52,6 +54,7 @@ const Project = () => {
               key={index} 
               project={project}
               index={index}
+              onOpen={() => navigate(`/project/${index}`)}
             />
           ))}
         </div>
@@ -60,7 +63,7 @@ const Project = () => {
   );
 };
 
-function ProjectItem({ project, index }) {
+function ProjectItem({ project, index, onOpen }) {
   const itemRef = useRef(null);
   const marqueeRef = useRef(null);
   const marqueeInnerRef = useRef(null);
@@ -117,9 +120,7 @@ function ProjectItem({ project, index }) {
   ));
 
   const handleClick = () => {
-    if (project.githubLink) {
-      window.open(project.githubLink, '_blank', 'noopener,noreferrer');
-    }
+    if (typeof onOpen === 'function') onOpen();
   };
 
   return (
